@@ -42,7 +42,7 @@ export interface ValueProp {
 
 export interface TechItem {
   name: string;
-  category: "Web & Frontend" | "Mobile Platforms" | "Backend & Data" | "AI & Solutions";
+  category: "Web & Frontend" | "Mobile" | "Backend & Data" | "AI & ML" | "Enterprise & Creative";
   iconName: string;
   description: string;
 }
@@ -362,10 +362,10 @@ export const techStackData: TechItem[] = [
     description: "Frontend framework referenced in Cling's web development curriculum.",
   },
 
-  // Mobile Platforms
+  // Mobile
   {
     name: "Mobile App Development",
-    category: "Mobile Platforms",
+    category: "Mobile",
     iconName: "Smartphone",
     description: "Custom mobile application development services.",
   },
@@ -384,40 +384,42 @@ export const techStackData: TechItem[] = [
     description: "NoSQL database technology referenced in Cling's web development curriculum.",
   },
   {
-    name: "APIs & Backend Development",
+    name: "Backend & APIs",
     category: "Backend & Data",
     iconName: "Zap",
-    description: "Backend servers and API development using Node.js.",
+    description: "Backend servers and API development.",
   },
 
-  // AI & Solutions
+  // AI & ML
   {
     name: "AI / ML",
-    category: "AI & Solutions",
+    category: "AI & ML",
     iconName: "Sparkles",
     description: "Artificial intelligence and machine learning solutions.",
   },
   {
     name: "Natural Language Processing (NLP)",
-    category: "AI & Solutions",
+    category: "AI & ML",
     iconName: "FileCode",
     description: "AI capability used to decode language patterns for deeper understanding.",
   },
   {
     name: "AI Surveillance",
-    category: "AI & Solutions",
+    category: "AI & ML",
     iconName: "Eye",
     description: "AI model demonstrating detection of suspicious activity in video.",
   },
+
+  // Enterprise & Creative
   {
     name: "ERP Solutions",
-    category: "AI & Solutions",
+    category: "Enterprise & Creative",
     iconName: "Layers3",
     description: "Enterprise resource planning solutions integrating business operations.",
   },
   {
     name: "3D Animation",
-    category: "AI & Solutions",
+    category: "Enterprise & Creative",
     iconName: "Box",
     description: "3D animation services including product visualization and architectural rendering.",
   },

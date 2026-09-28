@@ -38,9 +38,10 @@ export default function Technology() {
   const categories = [
     "All",
     "Web & Frontend",
-    "Mobile Platforms",
+    "Mobile",
     "Backend & Data",
-    "AI & Solutions",
+    "AI & ML",
+    "Enterprise & Creative",
   ];
 
   const filtered = techStackData.filter((item) => {
@@ -58,7 +59,7 @@ export default function Technology() {
             <span>Technologies</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Our Technology Focus
+            Technology &amp; Capabilities
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-300 font-normal">
             Technologies and capabilities reflected across Cling&apos;s web, mobile, AI, and enterprise solutions.
