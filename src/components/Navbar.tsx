@@ -43,10 +43,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center group focus:outline-none focus:ring-2 focus:ring-[#EF1B23] focus:ring-offset-2 focus:ring-offset-[#0A0A0B] rounded-xl"
+            className="flex items-center rounded-lg focus:outline-none focus-visible:ring-1 focus-visible:ring-white/30"
             aria-label="Cling InfoTech Homepage"
           >
-            <div className="h-10 sm:h-11 w-[145px] sm:w-[160px] px-3 sm:px-4 py-1.5 rounded-xl bg-white flex items-center justify-center transition-all group-hover:scale-[1.02] shadow-sm">
+            <div className="h-10 sm:h-11 px-3.5 sm:px-4 py-1.5 rounded-lg bg-white flex items-center justify-center transition-opacity hover:opacity-95">
               <Image
                 src="/images/logo.png"
                 alt="Cling InfoTech"
