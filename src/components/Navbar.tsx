@@ -43,28 +43,18 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#EF1B23] rounded-lg p-1"
+            className="flex items-center group focus:outline-none focus:ring-2 focus:ring-[#EF1B23] focus:ring-offset-2 focus:ring-offset-[#0A0A0B] rounded-xl"
             aria-label="Cling InfoTech Homepage"
           >
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#EF1B23] to-[#8A0005] p-[1px] shadow-md shadow-red-950/50">
-              <div className="w-full h-full bg-[#0A0A0B] rounded-[11px] flex items-center justify-center overflow-hidden">
-                <Image
-                  src="/images/logo.png"
-                  alt="Cling Logo"
-                  width={36}
-                  height={36}
-                  className="object-contain p-1 transition-transform group-hover:scale-105"
-                  priority
-                />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1">
-                CLING<span className="text-[#EF1B23]">.</span>
-              </span>
-              <span className="text-[10px] tracking-wider uppercase text-neutral-400 font-medium -mt-1">
-                InfoTech Works
-              </span>
+            <div className="h-10 sm:h-11 w-[145px] sm:w-[160px] px-3 sm:px-4 py-1.5 rounded-xl bg-white flex items-center justify-center transition-all group-hover:scale-[1.02] shadow-sm">
+              <Image
+                src="/images/logo.png"
+                alt="Cling InfoTech"
+                width={130}
+                height={34}
+                className="h-7 sm:h-8 w-auto object-contain"
+                priority
+              />
             </div>
           </Link>
 
