@@ -80,7 +80,7 @@ export interface Testimonial {
   role?: string;
   company?: string;
   quote: string;
-  image: string;
+  image?: string;
 }
 
 export const navigationData: NavItem[] = [
@@ -631,7 +631,6 @@ export const testimonialsData: Testimonial[] = [
     name: "Praveen Shetty",
     quote:
       "Working with Cling Info Tech was a game-changer for our business. Their expertise and dedication helped us achieve remarkable results. I highly recommend them to anyone looking for top-notch service",
-    image: "/images/logo.png",
   },
   {
     id: 2,
@@ -674,7 +673,6 @@ export const testimonialsData: Testimonial[] = [
     name: "Arif",
     quote:
       "Working with Cling Info Tech was a game-changer for our business. Their expertise and dedication helped us achieve remarkable results. I highly recommend them to anyone looking for top-notch service",
-    image: "/images/logo.png",
   },
   {
     id: 7,
@@ -690,7 +688,6 @@ export const testimonialsData: Testimonial[] = [
     name: "Ankit Solanki",
     quote:
       "Choosing Cling Info Tech was one of the best decisions we made. Their team's creativity and strategic approach transformed our vision into reality. I'm grateful for their outstanding support and guidance throughout the process.",
-    image: "/images/logo.png",
   },
   {
     id: 9,
@@ -706,7 +703,6 @@ export const testimonialsData: Testimonial[] = [
     name: "Shubhanshu Srivastava",
     quote:
       "Cling Info Tech' professionalism and efficiency surpassed our expectations, understanding our needs exceptionally well. Rarely do we find such a reliable partner in today's market. Their dedication sets them apart.",
-    image: "/images/logo.png",
   },
 ];
 

@@ -5,6 +5,14 @@ import Image from "next/image";
 import { MessageSquareQuote, ChevronLeft, ChevronRight } from "lucide-react";
 import { testimonialsData, Testimonial } from "@/data/siteData";
 
+function getInitials(name: string): string {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+  return parts[0].slice(0, 2).toUpperCase();
+}
+
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -65,13 +73,19 @@ export default function Testimonials() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left: Client Avatar and Meta */}
             <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
-              <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-[#EF1B23]/40 shadow-xl mb-4 bg-white/5">
-                <Image
-                  src={current.image}
-                  alt={current.name}
-                  fill
-                  className="object-cover"
-                />
+              <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-[#EF1B23]/40 shadow-xl mb-4 bg-[#151518] flex items-center justify-center">
+                {current.image ? (
+                  <Image
+                    src={current.image}
+                    alt={current.name}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-[#1E1E24] to-[#121215] flex items-center justify-center text-2xl sm:text-3xl font-extrabold text-neutral-200 tracking-wider font-mono">
+                    {getInitials(current.name)}
+                  </div>
+                )}
               </div>
 
               <h3 className="text-xl font-bold text-white">{current.name}</h3>
@@ -118,8 +132,14 @@ export default function Testimonials() {
                     : "bg-[#151518] border-white/5 hover:border-white/15"
                 }`}
               >
-                <div className="w-6 h-6 relative rounded-md overflow-hidden shrink-0 border border-white/10 bg-white/5">
-                  <Image src={item.image} alt={item.name} fill className="object-cover" />
+                <div className="w-6 h-6 relative rounded-md overflow-hidden shrink-0 border border-white/10 bg-[#1A1A1E] flex items-center justify-center">
+                  {item.image ? (
+                    <Image src={item.image} alt={item.name} fill className="object-cover" />
+                  ) : (
+                    <span className="text-[10px] font-bold text-neutral-300 font-mono">
+                      {getInitials(item.name)}
+                    </span>
+                  )}
                 </div>
                 <div className="min-w-0">
                   <span className="text-xs font-semibold text-white block truncate">
