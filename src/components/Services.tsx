@@ -35,20 +35,19 @@ export default function Services() {
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#EF1B23] uppercase tracking-wider mb-3">
             <Wrench className="w-3.5 h-3.5" />
-            <span>Core Capabilities</span>
+            <span>Our Services</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            End-to-end technology solutions
+            End-to-End IT Services
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-300 leading-relaxed font-normal">
-            We provide full-lifecycle software engineering, replacing fragmented vendors with a single unified technical team.
-            Every solution is tailored to your business model.
+            We are an end-to-end IT Solutions providing major services such as website development, mobile application development, digital marketing, custom web portal, IT team for your next idea, ERP development, for all your business needs.
           </p>
         </div>
 
         {/* Services Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {servicesData.map((service: Service, idx: number) => {
+          {servicesData.map((service: Service) => {
             const IconComponent = iconMap[service.iconName] || Layers;
             const isHovered = hoveredService === service.id;
 
@@ -62,16 +61,11 @@ export default function Services() {
                 }`}
               >
                 <div>
-                  {/* Top Bar with Icon and Badge */}
+                  {/* Top Bar with Icon */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-13 h-13 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#EF1B23] group-hover:bg-[#EF1B23] group-hover:text-white transition-all shadow-md">
+                    <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#EF1B23] group-hover:bg-[#EF1B23] group-hover:text-white transition-all shadow-md">
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    {service.badge && (
-                      <span className="text-[10px] font-semibold tracking-wider uppercase text-neutral-300 bg-white/5 px-2.5 py-1 rounded-full border border-white/10">
-                        {service.badge}
-                      </span>
-                    )}
                   </div>
 
                   {/* Title & Short Desc */}
@@ -89,7 +83,7 @@ export default function Services() {
                   {/* Deliverables Checklist */}
                   <div className="mt-6 pt-6 border-t border-white/5 space-y-2.5">
                     <div className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider">
-                      Key Deliverables:
+                      Service Scope:
                     </div>
                     {service.deliverables.map((item, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs text-neutral-300">
@@ -106,7 +100,7 @@ export default function Services() {
                     href="#contact"
                     className="inline-flex items-center gap-2 text-xs font-semibold text-neutral-300 group-hover:text-white transition-colors"
                   >
-                    <span>Request technical consultation</span>
+                    <span>Inquire About This Service</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#EF1B23] transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>

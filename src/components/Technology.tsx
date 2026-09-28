@@ -7,16 +7,10 @@ import {
   FileCode,
   Palette,
   Smartphone,
-  Layers,
   Server,
-  Cpu,
   Zap,
-  GitMerge,
   Cloud,
-  Box,
   Database,
-  HardDrive,
-  Binary,
   Eye,
   Sparkles,
   Layers3,
@@ -29,16 +23,10 @@ const iconMap: Record<string, React.ElementType> = {
   FileCode,
   Palette,
   Smartphone,
-  Layers,
   Server,
-  Cpu,
   Zap,
-  GitMerge,
   Cloud,
-  Box,
   Database,
-  HardDrive,
-  Binary,
   Eye,
   Sparkles,
 };
@@ -48,10 +36,10 @@ export default function Technology() {
 
   const categories = [
     "All",
-    "Frontend & Mobile",
-    "Backend & API",
-    "Cloud & Infrastructure",
-    "AI & Computer Vision",
+    "Web & Frontend",
+    "Mobile Platforms",
+    "Backend & Cloud",
+    "AI & Vision",
   ];
 
   const filtered = techStackData.filter((item) => {
@@ -66,13 +54,13 @@ export default function Technology() {
         <div className="max-w-3xl mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#EF1B23] uppercase tracking-wider mb-3">
             <Layers3 className="w-3.5 h-3.5" />
-            <span>Supported Stacks</span>
+            <span>Technologies</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Production-grade technology stack
+            Our Technology Focus
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-300 font-normal">
-            Battle-tested frameworks and cloud infrastructure backing Cling&apos;s digital products, high-throughput portals, and AI systems.
+            Technologies and frameworks utilized across Cling&apos;s web platforms, mobile applications, enterprise ERPs, and artificial intelligence solutions.
           </p>
         </div>
 
@@ -124,16 +112,16 @@ export default function Technology() {
           })}
         </div>
 
-        {/* Architecture Note */}
-        <div className="mt-12 p-6 rounded-xl bg-gradient-to-r from-[#151518] via-[#1A1A1E] to-[#151518] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-300">
+        {/* Bottom Note */}
+        <div className="mt-12 p-6 rounded-xl bg-[#151518] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-300">
           <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <span className="w-2 h-2 rounded-full bg-[#EF1B23] shrink-0" />
             <span>
-              All architectures undergo automated security auditing, static type verification, and latency benchmarks prior to deployment.
+              All design layouts are developed from ground up, meeting the exacting standards you demand.
             </span>
           </div>
           <span className="text-neutral-400 font-mono shrink-0">
-            DevSecOps • CI/CD Enabled
+            Making Your Ideas Happen!
           </span>
         </div>
       </div>

@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, ArrowUp } from "lucide-react";
+import { Phone, Mail, ArrowUp } from "lucide-react";
 import { LinkedInIcon, InstagramIcon } from "@/components/SocialIcons";
 import { companyContact } from "@/data/siteData";
 

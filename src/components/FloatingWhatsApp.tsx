@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-import { MessageCircle, X } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { companyContact } from "@/data/siteData";
 
 export default function FloatingWhatsApp() {

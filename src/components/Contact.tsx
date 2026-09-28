@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Send, Phone, Mail, MapPin, CheckCircle, AlertCircle, Sparkles, MessageCircle } from "lucide-react";
+import { Send, Phone, Mail, MapPin, CheckCircle, AlertCircle, MessageCircle } from "lucide-react";
 import { companyContact } from "@/data/siteData";
 
 export default function Contact() {
@@ -26,7 +26,7 @@ export default function Contact() {
       newErrors.email = "Please enter a valid email address";
     }
     if (!formData.message.trim()) {
-      newErrors.message = "Please provide details about your project or inquiry";
+      newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 10) {
       newErrors.message = "Message must be at least 10 characters long";
     }
@@ -39,7 +39,6 @@ export default function Contact() {
     if (!validate()) return;
 
     setIsSubmitting(true);
-    // Simulate brief client-side network dispatch
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
@@ -56,11 +55,10 @@ export default function Contact() {
     <section id="contact" className="relative py-24 sm:py-32 bg-[#0A0A0B] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Have a project in mind? */}
+          {/* Left Column: Contact Us / Have a project in mind? */}
           <div className="lg:col-span-5">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#EF1B23] uppercase tracking-wider mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Let&apos;s Build Together</span>
+              <span>Contact Us</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
@@ -68,7 +66,7 @@ export default function Contact() {
             </h2>
 
             <p className="mt-5 text-base sm:text-lg text-neutral-300 leading-relaxed font-normal">
-              Whether you are architecting a new product from scratch, rebuilding an existing enterprise platform, or seeking a dedicated engineering squad — we are ready to help.
+              We are an end-to-end IT Solutions providing major services such as website development, mobile application development, digital marketing, custom web portal, IT team for your next idea, ERP development, for all your business needs.
             </p>
 
             {/* Direct Contact Cards */}
@@ -81,7 +79,7 @@ export default function Contact() {
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-400 font-mono">Direct Phone Call</div>
+                  <div className="text-xs text-neutral-400 font-mono">Phone</div>
                   <div className="text-sm font-bold text-white group-hover:text-[#EF1B23] transition-colors">
                     {companyContact.phone}
                   </div>
@@ -96,7 +94,7 @@ export default function Contact() {
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-400 font-mono">Official Inquiries</div>
+                  <div className="text-xs text-neutral-400 font-mono">Email</div>
                   <div className="text-sm font-bold text-white group-hover:text-indigo-400 transition-colors">
                     {companyContact.email}
                   </div>
@@ -113,9 +111,9 @@ export default function Contact() {
                   <MessageCircle className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs text-neutral-400 font-mono">Instant WhatsApp</div>
+                  <div className="text-xs text-neutral-400 font-mono">WhatsApp</div>
                   <div className="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">
-                    Chat with Engineering Director
+                    +91 8264469132
                   </div>
                 </div>
               </a>
@@ -125,15 +123,15 @@ export default function Contact() {
             <div className="mt-8 pt-8 border-t border-white/10 text-xs text-neutral-400">
               <div className="flex items-center gap-2 text-neutral-300 font-semibold mb-1">
                 <MapPin className="w-3.5 h-3.5 text-[#EF1B23]" />
-                <span>Global Headquarters:</span>
+                <span>Head Office Noida:</span>
               </div>
               <p className="leading-relaxed">
-                130-132, 2nd Floor, Wave Galleria, Wave City, NH-24, Noida, UP - 201015
+                130, 131, 132, 2nd Floor, Wave Galleria, Wave City, NH-24, Noida, Uttar Pradesh - 201015
               </p>
             </div>
           </div>
 
-          {/* Right Column: Interactive Form with Validation & Demo Success State */}
+          {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
             <div className="rounded-3xl bg-[#151518] border border-white/10 p-8 sm:p-10 shadow-2xl relative">
               {isSuccess ? (
@@ -144,10 +142,10 @@ export default function Contact() {
                   </div>
                   <h3 className="text-2xl font-bold text-white">Message Received!</h3>
                   <p className="text-sm text-neutral-300 max-w-md mx-auto leading-relaxed">
-                    Thank you, <span className="font-semibold text-white">{formData.name}</span>. This is a demonstration state verifying client-side form validation. In production, our technical team responds within 24 hours.
+                    Thank you, <span className="font-semibold text-white">{formData.name}</span>. This is a demonstration state verifying client-side form validation.
                   </p>
                   <div className="p-4 rounded-xl bg-[#0A0A0B] border border-white/5 text-xs text-neutral-400 max-w-sm mx-auto font-mono text-left space-y-1">
-                    <div>Status: 200 OK (Validated)</div>
+                    <div>Status: Form Validated</div>
                     <div>Email: {formData.email}</div>
                     {formData.company && <div>Company: {formData.company}</div>}
                   </div>
@@ -157,13 +155,17 @@ export default function Contact() {
                       onClick={handleReset}
                       className="px-6 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors"
                     >
-                      Send Another Inquiry
+                      Send Another Message
                     </button>
                   </div>
                 </div>
               ) : (
                 /* Actual Form */
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                  <h3 className="text-lg font-bold text-white pb-2 border-b border-white/5">
+                    Send us a message
+                  </h3>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Full Name */}
                     <div>
@@ -176,7 +178,7 @@ export default function Contact() {
                         name="name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="e.g. Ramesh Singh"
+                        placeholder="Your Full Name"
                         className={`w-full px-4 py-3 rounded-xl bg-[#0A0A0B] border text-sm text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#EF1B23] transition-all ${
                           errors.name ? "border-[#EF1B23]" : "border-white/10 hover:border-white/20"
                         }`}
@@ -192,7 +194,7 @@ export default function Contact() {
                     {/* Email */}
                     <div>
                       <label htmlFor="email" className="block text-xs font-semibold text-neutral-300 mb-1.5">
-                        Work Email <span className="text-[#EF1B23]">*</span>
+                        Email <span className="text-[#EF1B23]">*</span>
                       </label>
                       <input
                         type="email"
@@ -200,7 +202,7 @@ export default function Contact() {
                         name="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="ramesh@company.com"
+                        placeholder="yourname@domain.com"
                         className={`w-full px-4 py-3 rounded-xl bg-[#0A0A0B] border text-sm text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#EF1B23] transition-all ${
                           errors.email ? "border-[#EF1B23]" : "border-white/10 hover:border-white/20"
                         }`}
@@ -218,7 +220,7 @@ export default function Contact() {
                     {/* Phone Number */}
                     <div>
                       <label htmlFor="phone" className="block text-xs font-semibold text-neutral-300 mb-1.5">
-                        Phone Number
+                        Phone
                       </label>
                       <input
                         type="tel"
@@ -226,7 +228,7 @@ export default function Contact() {
                         name="phone"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+91 8264469132"
+                        placeholder="Phone Number"
                         className="w-full px-4 py-3 rounded-xl bg-[#0A0A0B] border border-white/10 hover:border-white/20 text-sm text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#EF1B23] transition-all"
                       />
                     </div>
@@ -234,7 +236,7 @@ export default function Contact() {
                     {/* Company */}
                     <div>
                       <label htmlFor="company" className="block text-xs font-semibold text-neutral-300 mb-1.5">
-                        Company or Organization
+                        Company
                       </label>
                       <input
                         type="text"
@@ -242,7 +244,7 @@ export default function Contact() {
                         name="company"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder="Company Pvt Ltd"
+                        placeholder="Company Name"
                         className="w-full px-4 py-3 rounded-xl bg-[#0A0A0B] border border-white/10 hover:border-white/20 text-sm text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#EF1B23] transition-all"
                       />
                     </div>
@@ -251,7 +253,7 @@ export default function Contact() {
                   {/* Message */}
                   <div>
                     <label htmlFor="message" className="block text-xs font-semibold text-neutral-300 mb-1.5">
-                      Project Details &amp; Requirements <span className="text-[#EF1B23]">*</span>
+                      Message <span className="text-[#EF1B23]">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -259,7 +261,7 @@ export default function Contact() {
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about your project timeline, technical requirements, goals, or existing tech stack..."
+                      placeholder="Write your message here..."
                       className={`w-full px-4 py-3 rounded-xl bg-[#0A0A0B] border text-sm text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#EF1B23] transition-all ${
                         errors.message ? "border-[#EF1B23]" : "border-white/10 hover:border-white/20"
                       }`}
@@ -287,10 +289,6 @@ export default function Contact() {
                       </>
                     )}
                   </button>
-
-                  <p className="text-center text-[11px] text-neutral-500">
-                    We respect your privacy. No marketing spam. Direct response from senior architects.
-                  </p>
                 </form>
               )}
             </div>

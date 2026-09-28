@@ -19,30 +19,30 @@ export default function WhyCling() {
           {/* Left Column: Narrative Headline */}
           <div className="lg:col-span-5 sticky top-28">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#EF1B23] uppercase tracking-wider mb-4">
-              <span>Why Cling InfoTech</span>
+              <span>Why Cling</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Engineered for velocity, scale, and longevity.
+              Making your ideas happen with technology.
             </h2>
             <p className="mt-5 text-base sm:text-lg text-neutral-300 leading-relaxed font-normal">
-              Most software projects fail not because of coding mistakes, but due to misalignment between engineering execution and commercial objectives.
+              We understand not only our customers well, but also the industry at large. We believe in innovations at their best, focusing on enhancing capability and business growth.
             </p>
             <p className="mt-4 text-sm text-neutral-400 leading-relaxed">
-              We structure our engineering sprints around business leverage, ensuring that every deployment delivers tangible operational value, user adoption, and ROI.
+              Whether integrating back and front office applications or building custom portals, we partner with businesses to deliver solutions meeting the exacting standards you demand.
             </p>
 
             <div className="mt-8 pt-8 border-t border-white/10 space-y-3">
               <div className="flex items-center gap-3 text-sm text-neutral-300">
                 <CheckCircle className="w-4 h-4 text-[#EF1B23] shrink-0" />
-                <span>Zero template shortcuts — 100% custom architectures</span>
+                <span>All design layouts developed from ground up</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-neutral-300">
                 <CheckCircle className="w-4 h-4 text-[#EF1B23] shrink-0" />
-                <span>Transparent sprints with weekly staging releases</span>
+                <span>Never using pre-designed templates for your website</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-neutral-300">
                 <CheckCircle className="w-4 h-4 text-[#EF1B23] shrink-0" />
-                <span>Dedicated tech leads with direct Slack/Teams integration</span>
+                <span>End-to-end IT services for all business needs</span>
               </div>
             </div>
           </div>

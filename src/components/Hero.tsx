@@ -2,31 +2,30 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Code2, Cpu, ShieldCheck, Sparkles, Database, Layers, Activity } from "lucide-react";
+import { ArrowRight, Code2, Cpu, Database, Layers, Sparkles, Activity } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-grid-pattern">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#EF1B23]/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-20 right-10 w-[300px] h-[300px] bg-[#6366F1]/5 blur-[100px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Headline & Value Prop */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Trust badge */}
+            {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-semibold text-neutral-300 mb-6 shadow-inner backdrop-blur-md">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EF1B23] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#EF1B23]"></span>
               </span>
-              <span>Enterprise IT &amp; Digital Product Engineering</span>
+              <span>End-to-End IT Solutions</span>
               <span className="text-neutral-500">•</span>
-              <span className="text-neutral-400 font-normal">350+ Global Clients</span>
+              <span className="text-neutral-400 font-normal">Making Your Ideas Happen!</span>
             </div>
 
-            {/* Bold Headline */}
+            {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
               We build digital products that{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EF1B23] via-[#FF4D54] to-[#EF1B23]">
@@ -36,8 +35,7 @@ export default function Hero() {
 
             {/* Supporting Copy */}
             <p className="mt-6 text-lg sm:text-xl text-neutral-300 leading-relaxed max-w-2xl font-normal">
-              From mission-critical web platforms and native mobile applications to intelligent AI/ML models,
-              enterprise ERPs, and bespoke software — we engineer scalable digital solutions that drive measurable business growth.
+              We are an end-to-end IT solutions provider delivering website development, mobile application development, digital marketing, custom web portals, IT teams for your ideas, and ERP development for all your business needs.
             </p>
 
             {/* Action Buttons */}
@@ -62,24 +60,24 @@ export default function Hero() {
             <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full text-xs text-neutral-400">
               <div className="flex items-center gap-2">
                 <Code2 className="w-4 h-4 text-[#EF1B23] shrink-0" />
-                <span>Web &amp; Custom Apps</span>
+                <span>Web Development</span>
               </div>
               <div className="flex items-center gap-2">
                 <Layers className="w-4 h-4 text-[#EF1B23] shrink-0" />
-                <span>Mobile (iOS &amp; Android)</span>
+                <span>Mobile Applications</span>
               </div>
               <div className="flex items-center gap-2">
                 <Cpu className="w-4 h-4 text-[#EF1B23] shrink-0" />
-                <span>AI &amp; Computer Vision</span>
+                <span>AI / ML Solutions</span>
               </div>
               <div className="flex items-center gap-2">
                 <Database className="w-4 h-4 text-[#EF1B23] shrink-0" />
-                <span>Enterprise ERPs</span>
+                <span>ERP Development</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Sophisticated Technology & Architecture Visual */}
+          {/* Right Column: Technology & Solutions Capability Visual */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
               {/* Main Console Box */}
@@ -90,17 +88,17 @@ export default function Hero() {
                     <div className="w-3 h-3 rounded-full bg-[#EF1B23]/80" />
                     <div className="w-3 h-3 rounded-full bg-amber-500/80" />
                     <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                    <span className="text-xs font-mono text-neutral-400 ml-2">cling-engine // telemetry</span>
+                    <span className="text-xs font-mono text-neutral-400 ml-2">cling-services // overview</span>
                   </div>
                   <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
                     <Activity className="w-3 h-3 animate-pulse" />
-                    <span>SYSTEM ONLINE</span>
+                    <span>ACTIVE</span>
                   </div>
                 </div>
 
                 {/* Architecture Service Cards */}
                 <div className="mt-4 space-y-3">
-                  {/* Card 1: Enterprise ERP Core */}
+                  {/* Card 1: ERPs */}
                   <div className="p-3.5 rounded-xl bg-[#0A0A0B]/80 border border-white/5 hover:border-[#EF1B23]/40 transition-colors group">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-3">
@@ -109,20 +107,20 @@ export default function Hero() {
                         </div>
                         <div>
                           <div className="text-xs font-semibold text-white group-hover:text-[#EF1B23] transition-colors">
-                            Enterprise ERP Ecosystem
+                            ERP Development
                           </div>
                           <div className="text-[11px] text-neutral-400 font-mono">
-                            Multi-warehouse • Ledger • Automated Invoicing
+                            Front &amp; back office application integration
                           </div>
                         </div>
                       </div>
                       <span className="text-[10px] font-mono text-neutral-400 bg-white/5 px-2 py-0.5 rounded">
-                        14.8k ops/s
+                        Enterprise
                       </span>
                     </div>
                   </div>
 
-                  {/* Card 2: AI Neural Vision Engine */}
+                  {/* Card 2: AI / ML */}
                   <div className="p-3.5 rounded-xl bg-[#0A0A0B]/80 border border-white/5 hover:border-[#EF1B23]/40 transition-colors group">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-3">
@@ -131,56 +129,56 @@ export default function Hero() {
                         </div>
                         <div>
                           <div className="text-xs font-semibold text-white group-hover:text-indigo-400 transition-colors">
-                            AI Computer Vision &amp; NLP
+                            AI / ML &amp; Computer Vision
                           </div>
                           <div className="text-[11px] text-neutral-400 font-mono">
-                            Sub-second surveillance • 98.7% accuracy
-                          </div>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                        42ms infer
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Card 3: Cloud Microservices & Mobile Gateway */}
-                  <div className="p-3.5 rounded-xl bg-[#0A0A0B]/80 border border-white/5 hover:border-[#EF1B23]/40 transition-colors group">
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-                          <ShieldCheck className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold text-white group-hover:text-emerald-400 transition-colors">
-                            Cloud API &amp; Mobile Mesh
-                          </div>
-                          <div className="text-[11px] text-neutral-400 font-mono">
-                            AWS Distributed Architecture • SSL Grade A+
+                            Surveillance models &amp; NLP language patterns
                           </div>
                         </div>
                       </div>
                       <span className="text-[10px] font-mono text-neutral-400 bg-white/5 px-2 py-0.5 rounded">
-                        99.98% SLA
+                        Intelligent
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Card 3: Web & Mobile */}
+                  <div className="p-3.5 rounded-xl bg-[#0A0A0B]/80 border border-white/5 hover:border-[#EF1B23]/40 transition-colors group">
+                    <div className="flex items-start justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                          <Code2 className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                            Web &amp; Mobile Development
+                          </div>
+                          <div className="text-[11px] text-neutral-400 font-mono">
+                            Ground-up layouts, never pre-designed templates
+                          </div>
+                        </div>
+                      </div>
+                      <span className="text-[10px] font-mono text-neutral-400 bg-white/5 px-2 py-0.5 rounded">
+                        Custom
                       </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Code Terminal Output Stream */}
+                {/* Console Log Summary */}
                 <div className="mt-4 p-3 rounded-xl bg-black/60 border border-white/5 font-mono text-[11px] text-neutral-400 space-y-1">
                   <div className="flex items-center justify-between text-neutral-500">
-                    <span>deployment-stream.log</span>
-                    <span className="text-neutral-600">v4.2.1-prod</span>
+                    <span>cling-system.status</span>
+                    <span className="text-neutral-500">Production Ready</span>
                   </div>
                   <div className="text-neutral-300">
-                    <span className="text-[#EF1B23]">✓</span> Cluster nodes synchronized across 12 countries
+                    <span className="text-[#EF1B23]">✓</span> Web, Mobile, AI/ML, and ERP solutions
+                  </div>
+                  <div className="text-neutral-300">
+                    <span className="text-emerald-400">✓</span> 350+ clients • 390+ completed projects
                   </div>
                   <div className="text-neutral-400">
-                    <span className="text-emerald-400">✓</span> 32M+ lines of verified code in production
-                  </div>
-                  <div className="text-neutral-500">
-                    <span className="text-indigo-400">→</span> Ready for next enterprise workload
+                    <span className="text-indigo-400">→</span> Making Your Ideas Happen!
                   </div>
                 </div>
               </div>
@@ -191,8 +189,8 @@ export default function Hero() {
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white">Making Your Ideas Happen</div>
-                  <div className="text-[10px] text-neutral-400">Zero-template bespoke engineering</div>
+                  <div className="text-xs font-bold text-white">Making Your Ideas Happen!</div>
+                  <div className="text-[10px] text-neutral-400">End-to-End IT Solutions</div>
                 </div>
               </div>
             </div>

@@ -14,7 +14,7 @@ function CounterItem({
   target: number;
   suffix: string;
   label: string;
-  sublabel: string;
+  sublabel?: string;
   icon: React.ElementType;
 }) {
   const [count, setCount] = useState(0);
@@ -41,14 +41,12 @@ function CounterItem({
   useEffect(() => {
     if (!hasAnimated) return;
 
-    let start = 0;
     const duration = 1800; // ms
     const startTime = performance.now();
 
     const updateCount = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // easeOutExpo
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const currentVal = Math.floor(easeProgress * target);
 
@@ -73,9 +71,6 @@ function CounterItem({
         <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#EF1B23] group-hover:scale-110 group-hover:bg-[#EF1B23]/10 transition-all">
           <Icon className="w-6 h-6" />
         </div>
-        <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider">
-          Verified Audit
-        </span>
       </div>
 
       <div className="flex items-baseline gap-1">
@@ -88,7 +83,7 @@ function CounterItem({
       <h3 className="mt-3 text-base sm:text-lg font-bold text-neutral-200 group-hover:text-white transition-colors">
         {label}
       </h3>
-      <p className="mt-1 text-xs text-neutral-400 leading-relaxed">{sublabel}</p>
+      {sublabel && <p className="mt-1 text-xs text-neutral-400 leading-relaxed">{sublabel}</p>}
 
       {/* Subtle indicator bar on bottom */}
       <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#EF1B23]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -106,13 +101,13 @@ export default function Stats() {
         <div className="max-w-2xl mx-auto text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#EF1B23] uppercase tracking-wider mb-3">
             <TrendingUp className="w-3.5 h-3.5" />
-            <span>Proven Track Record</span>
+            <span>Company Overview</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-            Numbers backed by real execution
+            Key Company Statistics
           </h2>
           <p className="mt-3 text-sm sm:text-base text-neutral-400">
-            Real metrics from production software and global client deployments since 2019.
+            Official figures from Cling Info Tech across client engagements and completed projects.
           </p>
         </div>
 

@@ -3,22 +3,25 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, FolderGit2, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, FolderGit2 } from "lucide-react";
 import { projectsData, Project } from "@/data/siteData";
 
 export default function SelectedWork() {
   const [activeFilter, setActiveFilter] = useState<string>("All");
 
-  const categories = ["All", "Enterprise SaaS", "Healthcare", "Fintech", "Artificial Intelligence", "ERP"];
+  const categories = [
+    "All",
+    "Productivity & Management",
+    "On-Demand Services",
+    "Artificial Intelligence",
+    "Enterprise ERP",
+    "Healthcare & Therapeutics",
+    "Web & Management",
+  ];
 
   const filteredProjects = projectsData.filter((p) => {
     if (activeFilter === "All") return true;
-    if (activeFilter === "Enterprise SaaS") return p.category.includes("SaaS") || p.category.includes("Services");
-    if (activeFilter === "Healthcare") return p.category.includes("Healthcare");
-    if (activeFilter === "Fintech") return p.category.includes("Fintech");
-    if (activeFilter === "Artificial Intelligence") return p.category.includes("Intelligence");
-    if (activeFilter === "ERP") return p.category.includes("ERP");
-    return true;
+    return p.category === activeFilter;
   });
 
   return (
@@ -29,13 +32,13 @@ export default function SelectedWork() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#EF1B23] uppercase tracking-wider mb-3">
               <FolderGit2 className="w-3.5 h-3.5" />
-              <span>Selected Client Work &amp; Products</span>
+              <span>Our Portfolio</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-              Crafted with engineering depth
+              Selected Work &amp; Products
             </h2>
             <p className="mt-3 text-base text-neutral-400 max-w-xl">
-              A curated showcase of real digital products, high-throughput portals, and enterprise systems built by Cling.
+              A company needs to always have done great projects to showcase its skill sets and so do we. Below, we are showcasing some of our works to demonstrate our capabilities in the best realistic ways.
             </p>
           </div>
 
@@ -46,7 +49,7 @@ export default function SelectedWork() {
                 key={cat}
                 type="button"
                 onClick={() => setActiveFilter(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                   activeFilter === cat
                     ? "bg-[#EF1B23] text-white shadow-md shadow-red-950/40"
                     : "bg-[#151518] text-neutral-400 hover:text-white border border-white/5 hover:border-white/15"
@@ -59,17 +62,17 @@ export default function SelectedWork() {
         </div>
 
         {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredProjects.map((project: Project, index: number) => (
             <article
               key={project.id}
               className="group relative rounded-2xl bg-[#151518] border border-white/10 hover:border-[#EF1B23]/40 transition-all duration-300 overflow-hidden flex flex-col hover:-translate-y-1.5 shadow-2xl"
             >
-              {/* Image / Visual Header */}
+              {/* Visual Header */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-900 border-b border-white/5">
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.fallbackGradient} opacity-90`} />
 
-                {/* Subtle visual badge */}
+                {/* Category Badge */}
                 <div className="absolute top-4 left-4 z-10">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] font-medium text-white border border-white/10">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#EF1B23]" />
@@ -77,24 +80,15 @@ export default function SelectedWork() {
                   </span>
                 </div>
 
-                {project.metrics && (
-                  <div className="absolute top-4 right-4 z-10">
-                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#EF1B23]/90 text-white text-[11px] font-bold shadow-md">
-                      <Sparkles className="w-3 h-3" />
-                      {project.metrics.value}
-                    </span>
-                  </div>
-                )}
-
-                {/* Main Media Preview */}
-                <div className="absolute inset-0 flex items-center justify-center p-8 group-hover:scale-105 transition-transform duration-500">
-                  <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-[#0A0A0B]/80 flex items-center justify-center">
+                {/* Preview Thumbnail */}
+                <div className="absolute inset-0 flex items-center justify-center p-6 group-hover:scale-105 transition-transform duration-500">
+                  <div className="relative w-full h-full rounded-xl overflow-hidden shadow-xl border border-white/10 bg-[#0A0A0B]/80 flex items-center justify-center">
                     <Image
                       src={project.image}
                       alt={project.name}
                       fill
                       className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-transparent to-transparent opacity-60" />
                   </div>
@@ -102,15 +96,15 @@ export default function SelectedWork() {
               </div>
 
               {/* Card Body */}
-              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-[#EF1B23] transition-colors">
+                    <h3 className="text-xl font-bold text-white group-hover:text-[#EF1B23] transition-colors">
                       {project.name}
                     </h3>
                     <Link
                       href="#contact"
-                      className="w-9 h-9 rounded-full bg-white/5 group-hover:bg-[#EF1B23] flex items-center justify-center text-neutral-300 group-hover:text-white transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-[#EF1B23]"
+                      className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-[#EF1B23] flex items-center justify-center text-neutral-300 group-hover:text-white transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-[#EF1B23]"
                       aria-label={`Inquire about ${project.name}`}
                     >
                       <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -121,33 +115,33 @@ export default function SelectedWork() {
                     {project.tagline}
                   </p>
 
-                  <p className="mt-4 text-sm text-neutral-300 leading-relaxed font-normal">
+                  <p className="mt-3 text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
                     {project.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-white/5">
+                <div className="mt-5 pt-4 border-t border-white/5">
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/5 text-[11px] font-mono text-neutral-400"
+                        className="px-2 py-0.5 rounded-md bg-white/[0.03] border border-white/5 text-[10px] font-mono text-neutral-400"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="mt-5 flex items-center justify-between">
+                  <div className="mt-4 flex items-center justify-between">
                     <Link
                       href="#contact"
-                      className="text-xs font-semibold text-neutral-300 hover:text-white flex items-center gap-1.5 group/btn"
+                      className="text-xs font-semibold text-neutral-300 hover:text-white flex items-center gap-1 group/btn"
                     >
-                      <span>Inquire About Similar Architecture</span>
+                      <span>Inquire About This Solution</span>
                       <ArrowUpRight className="w-3.5 h-3.5 text-[#EF1B23] transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                     </Link>
                     <span className="text-[11px] font-mono text-neutral-500">
-                      Case #{index + 1}
+                      Project 0{index + 1}
                     </span>
                   </div>
                 </div>
@@ -157,18 +151,18 @@ export default function SelectedWork() {
         </div>
 
         {/* Bottom CTA for Projects */}
-        <div className="mt-16 p-8 rounded-2xl bg-[#151518] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-[#151518] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div>
-            <h4 className="text-lg font-bold text-white">Have a specific custom requirement?</h4>
+            <h4 className="text-lg font-bold text-white">Looking for custom software development?</h4>
             <p className="text-sm text-neutral-400 mt-1">
-              We have delivered 390+ software applications across 12 countries. Let&apos;s build yours.
+              All design layouts are developed from ground up, meeting the exacting standards you demand.
             </p>
           </div>
           <Link
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#EF1B23] hover:bg-[#D4141C] text-sm font-semibold text-white shadow-lg shadow-red-950/40 transition-colors shrink-0"
           >
-            <span>Discuss Your Project</span>
+            <span>Start a Project</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>

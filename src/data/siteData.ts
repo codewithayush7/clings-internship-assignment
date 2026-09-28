@@ -9,7 +9,7 @@ export interface Statistic {
   suffix: string;
   prefix?: string;
   label: string;
-  sublabel: string;
+  sublabel?: string;
 }
 
 export interface Project {
@@ -21,8 +21,6 @@ export interface Project {
   tags: string[];
   image: string;
   fallbackGradient: string;
-  metrics?: { label: string; value: string };
-  link?: string;
 }
 
 export interface Service {
@@ -32,7 +30,6 @@ export interface Service {
   description: string;
   iconName: string;
   deliverables: string[];
-  badge?: string;
 }
 
 export interface ValueProp {
@@ -45,7 +42,7 @@ export interface ValueProp {
 
 export interface TechItem {
   name: string;
-  category: "Frontend & Mobile" | "Backend & API" | "Cloud & Infrastructure" | "AI & Computer Vision";
+  category: "Web & Frontend" | "Mobile Platforms" | "Backend & Cloud" | "AI & Vision";
   iconName: string;
   description: string;
 }
@@ -53,31 +50,26 @@ export interface TechItem {
 export interface Country {
   name: string;
   code: string;
-  region: "Asia Pacific" | "Americas" | "Europe" | "Middle East & Africa";
+  region: string;
   flagUrl: string;
-  coords: { x: number; y: number }; // Percentage on SVG map
-  highlight?: string;
+  coords: { x: number; y: number };
 }
 
 export interface Client {
   name: string;
-  category: string;
-  logoText: string;
-  remoteLogo?: string;
-  website?: string;
+  imageURL: string;
+  websiteLink?: string;
 }
 
 export interface TimelineMilestone {
   year: string;
   title: string;
   description: string;
-  metrics?: string;
 }
 
 export interface Leader {
   name: string;
   role: string;
-  bio: string;
   image: string;
   linkedin?: string;
 }
@@ -85,11 +77,10 @@ export interface Leader {
 export interface Testimonial {
   id: number;
   name: string;
-  role: string;
+  role?: string;
   company?: string;
   quote: string;
   image: string;
-  rating: number;
 }
 
 export const navigationData: NavItem[] = [
@@ -97,19 +88,19 @@ export const navigationData: NavItem[] = [
     name: "About",
     href: "#story",
     children: [
-      { name: "Our Story", href: "#story", desc: "Our journey from 2019 to today" },
-      { name: "Leadership", href: "#leadership", desc: "Meet the executive team driving Cling" },
-      { name: "Global Footprint", href: "#global", desc: "Presence across 12+ international markets" },
+      { name: "Our Story", href: "#story", desc: "Our journey, vision, and mission" },
+      { name: "Leadership", href: "#leadership", desc: "Meet our leadership team" },
+      { name: "Global Presence", href: "#global", desc: "Our presence across international markets" },
     ],
   },
   {
     name: "Services",
     href: "#services",
     children: [
-      { name: "Web & Custom Software", href: "#services", desc: "Tailor-made platforms built for scale" },
-      { name: "Mobile App Engineering", href: "#services", desc: "Native iOS, Android & cross-platform apps" },
-      { name: "AI & Computer Vision", href: "#services", desc: "Intelligent automation and neural models" },
-      { name: "Enterprise ERP Systems", href: "#services", desc: "Integrated digital backbones for operations" },
+      { name: "Web Development", href: "#services", desc: "Custom web design and ground-up development" },
+      { name: "Mobile App Development", href: "#services", desc: "Android and iOS mobile applications" },
+      { name: "AI & ML", href: "#services", desc: "Intelligent systems and NLP solutions" },
+      { name: "ERPs", href: "#services", desc: "Integrated back and front office applications" },
     ],
   },
   {
@@ -117,7 +108,7 @@ export const navigationData: NavItem[] = [
     href: "#work",
   },
   {
-    name: "Solutions",
+    name: "Why Cling",
     href: "#why-cling",
   },
   {
@@ -128,28 +119,28 @@ export const navigationData: NavItem[] = [
 
 export const statisticsData: Statistic[] = [
   {
-    value: 32,
-    suffix: "M+",
-    label: "Lines of Code Written",
-    sublabel: "32,387,122+ audited and verified across production systems",
+    value: 32387122,
+    suffix: "+",
+    label: "Lines of Code",
+    sublabel: "Number of lines of code",
   },
   {
     value: 350,
     suffix: "+",
-    label: "Happy Global Clients",
-    sublabel: "Startups, mid-market leaders, and enterprise organizations",
+    label: "Happy Clients",
+    sublabel: "Clients served globally",
   },
   {
     value: 390,
     suffix: "+",
     label: "Projects Completed",
-    sublabel: "Spanning web platforms, mobile apps, ERPs, and AI systems",
+    sublabel: "Projects delivered across domains",
   },
   {
     value: 1500,
     suffix: "+",
     label: "Coffee With Clients",
-    sublabel: "Deep strategic advisory and architectural sessions",
+    sublabel: "Client interactions & consultations",
   },
 ];
 
@@ -157,163 +148,154 @@ export const projectsData: Project[] = [
   {
     id: "task-flow",
     name: "Task Flow",
-    category: "Enterprise SaaS & Productivity",
-    tagline: "High-performance project orchestration platform",
+    category: "Productivity & Management",
+    tagline: "Task management and collaboration platform",
     description:
-      "A comprehensive task management and team collaboration system engineered to streamline complex project workflows, automate milestone tracking, and deliver real-time productivity telemetry.",
-    tags: ["React", "Node.js", "Real-Time WebSockets", "PostgreSQL", "Workflow Engine"],
+      "Organize tasks, boost productivity, collaborate seamlessly with your team, organize and monitor project progress, and keep tasks organized and on track with our powerful task management platform.",
+    tags: ["Web Application", "Task Management", "Team Collaboration"],
     image: "/images/thumb-ai.png",
     fallbackGradient: "from-neutral-900 via-neutral-950 to-red-950/40",
-    metrics: { label: "Productivity Boost", value: "3.4x Faster" },
   },
   {
     id: "rusho",
-    name: "Rusho Platform",
-    category: "Hyperlocal On-Demand Services",
-    tagline: "On-demand home services fulfillment ecosystem",
+    name: "Rusho",
+    category: "On-Demand Services",
+    tagline: "On-demand home services platform",
     description:
-      "Ghaziabad's pioneer on-demand home services platform connecting thousands of households with verified professionals, featuring live geospatial technician tracking and instant scheduling.",
-    tags: ["Mobile App", "Geospatial Routing", "Live Tracking", "Payment Gateway", "Real-Time Dispatch"],
+      "Ghaziabad's first on-demand home services platform, delivering trained and verified professionals for cleaning, home help, errands, and more — right at your doorstep in Wave City and surrounding areas. Book a service in minutes, track your expert live, and get reliable help when you need it.",
+    tags: ["Mobile Application", "Live Tracking", "Service Booking"],
     image: "/images/thumb-3d.png",
     fallbackGradient: "from-neutral-900 via-neutral-950 to-neutral-900",
-    metrics: { label: "Dispatch Latency", value: "< 2 mins" },
   },
   {
-    id: "speech-ally",
-    name: "Speech Ally (PhonoLogix)",
-    category: "Healthcare & Digital Therapeutics",
-    tagline: "Interactive speech therapy portal & patient ecosystem",
+    id: "ai-surveillance",
+    name: "AI Surveillance & Vision",
+    category: "Artificial Intelligence",
+    tagline: "Surveillance model for video activity detection",
     description:
-      "Clinical digital therapy application providing interactive speech pathology exercises, automated session diagnostics, and therapist-patient administration across mobile and desktop devices.",
-    tags: ["Audio Processing", "Cross-Platform", "HIPAA Architecture", "Admin Portal", "Analytics"],
-    image: "/images/elizabeth.jpeg",
-    fallbackGradient: "from-neutral-900 via-neutral-950 to-red-950/30",
-    metrics: { label: "Patient Retention", value: "94%" },
+      "The Surveillance Model identifies suspicious activity in video feeds. Harnessing the power of AI to decode patterns, detect events, and provide automated surveillance monitoring.",
+    tags: ["AI / ML", "Computer Vision", "Surveillance"],
+    image: "/images/thumb-ai.png",
+    fallbackGradient: "from-neutral-900 via-neutral-950 to-red-950/50",
   },
   {
     id: "omson-erp",
-    name: "Omsons ERP Ecosystem",
-    category: "Enterprise Manufacturing ERP",
-    tagline: "End-to-end industrial manufacturing & export ERP",
+    name: "Omson ERP",
+    category: "Enterprise ERP",
+    tagline: "Integrated enterprise management solution",
     description:
-      "Tailored enterprise resource management software integrating multi-warehouse inventory, procurement cycles, GST compliance, international export documentation, and shop-floor tracking.",
-    tags: ["ERP Architecture", "Supply Chain", "Inventory Management", "Financial Ledger", "Role-Based Access"],
+      "Comprehensive ERP solution helping businesses manage daily business activities by seamlessly integrating front and back office operations, inventory, and workflows.",
+    tags: ["ERP", "Enterprise Software", "Business Operations"],
     image: "/images/thumb-3d.png",
     fallbackGradient: "from-neutral-900 via-neutral-950 to-neutral-900",
-    metrics: { label: "Operational Overhead", value: "-38%" },
   },
   {
-    id: "epaylater",
-    name: "ePayLater Infrastructure",
-    category: "Fintech & Instant Credit Checkout",
-    tagline: "Seamless deferred payment & credit settlement engine",
+    id: "speech-ally",
+    name: "Speech Ally",
+    category: "Healthcare & Therapeutics",
+    tagline: "Speech therapy mobile & web application",
     description:
-      "Digital payment infrastructure integration enabling instant credit checkouts, idempotent payment verification, and fraud prevention for commercial merchants and consumers.",
-    tags: ["Fintech", "Payment Gateways", "High Throughput", "Security", "Idempotent APIs"],
+      "Dedicated digital platform designed to support speech therapy exercises, patient engagement, and administrative clinical tracking across devices.",
+    tags: ["Mobile App", "Web Portal", "Healthcare"],
+    image: "/images/elizabeth.jpeg",
+    fallbackGradient: "from-neutral-900 via-neutral-950 to-red-950/30",
+  },
+  {
+    id: "matrix-solutions",
+    name: "Matrix",
+    category: "Web & Management",
+    tagline: "Custom management web portal",
+    description:
+      "Bespoke digital management platform engineered to meet the exacting workflow and reporting standards required by business stakeholders.",
+    tags: ["Custom Web Portal", "Business Management"],
     image: "/images/aurko.jpeg",
     fallbackGradient: "from-neutral-900 via-neutral-950 to-indigo-950/30",
-    metrics: { label: "Uptime Reliability", value: "99.99%" },
-  },
-  {
-    id: "ai-vision",
-    name: "Computer Vision & Surveillance",
-    category: "Artificial Intelligence & Edge ML",
-    tagline: "Real-time anomalous activity detection neural network",
-    description:
-      "High-throughput intelligent vision model designed to analyze continuous video feeds, recognize facial signatures, and flag suspicious perimeter breaches with sub-second alert latency.",
-    tags: ["Python", "PyTorch", "Computer Vision", "Object Detection", "Real-Time Video Stream"],
-    image: "/images/thumb-ai.png",
-    fallbackGradient: "from-neutral-900 via-neutral-950 to-red-950/50",
-    metrics: { label: "Detection Accuracy", value: "98.7%" },
   },
 ];
 
 export const servicesData: Service[] = [
   {
-    id: "web-dev",
-    title: "Web & Custom Software",
-    shortDesc: "Bespoke digital platforms engineered from ground zero.",
+    id: "app-dev",
+    title: "App Development",
+    shortDesc: "Custom mobile application development.",
     description:
-      "We never use cookie-cutter templates. Every web application and SaaS portal is engineered from the ground up to match your exact business logic, performance demands, and brand sophistication.",
-    iconName: "Globe",
-    badge: "Core Expertise",
+      "Need custom app development services? We can help you to take advantage of the rapidly growing segment of mobile application development.",
+    iconName: "Smartphone",
     deliverables: [
-      "Custom Enterprise Portals & SaaS",
-      "Next.js & React High-Speed Web Apps",
-      "Headless CMS & E-Commerce Architectures",
-      "Mission-Critical Microservices & APIs",
+      "Android & iOS App Development",
+      "Custom User Interface & Experience",
+      "Mobile Architecture & Integration",
+      "App Deployment & Maintenance",
     ],
   },
   {
-    id: "mobile-dev",
-    title: "Mobile App Engineering",
-    shortDesc: "Native and cross-platform experiences for iOS and Android.",
+    id: "web-design",
+    title: "Web Design & Custom Development",
+    shortDesc: "Ground-up design layouts, never pre-designed templates.",
     description:
-      "Delivering consumer-grade smoothness and enterprise security. From offline-first architectures to real-time geospatial tracking, our apps captivate users and drive retention.",
-    iconName: "Smartphone",
-    badge: "Native & Cross-Platform",
+      "Don't let your website be just another URL on the web! We never use a pre-designed template for your website. All design layouts are developed from ground up, meeting the exacting standards you demand.",
+    iconName: "Globe",
     deliverables: [
-      "iOS (Swift) & Android (Kotlin) Development",
-      "React Native & Flutter Solutions",
-      "Live Geospatial Tracking & Telemetry",
-      "Secure In-App Payments & Biometrics",
+      "Custom Web Portal Development",
+      "Ground-Up Responsive Layouts",
+      "Frontend & Backend Development",
+      "Domain & Application Hosting Support",
+    ],
+  },
+  {
+    id: "erps",
+    title: "ERPs",
+    shortDesc: "Integrated back and front office applications.",
+    description:
+      "We help you to manage your business activities by integrating your back and front office applications.",
+    iconName: "Database",
+    deliverables: [
+      "Business Activity Management",
+      "Front Office & Back Office Integration",
+      "Operations & Workflow Automation",
+      "Data Synchronization & Reporting",
     ],
   },
   {
     id: "ai-ml",
-    title: "AI & Machine Learning",
-    shortDesc: "Cognitive models, Computer Vision, and intelligent NLP.",
+    title: "AI / ML",
+    shortDesc: "Intelligent systems that adapt, learn, and evolve.",
     description:
-      "We build adaptive intelligence into your operational workflow. From real-time surveillance video analytics to custom NLP chatbots and automated classification engines.",
+      "We craft intelligent systems that adapt, learn, and evolve. Harnessing the power of Natural Language Processing (NLP), we decode language patterns for deeper understanding and actionable intelligence. Experience the future of innovation with our AI/ML solutions.",
     iconName: "Cpu",
-    badge: "Next-Gen Tech",
     deliverables: [
-      "Computer Vision & Object Detection Models",
-      "Natural Language Processing (NLP) Engines",
-      "Predictive Analytics & Forecasting Pipelines",
-      "LLM Fine-Tuning & Intelligent Agents",
+      "Natural Language Processing (NLP)",
+      "Surveillance & Video Activity Models",
+      "Adaptive Learning Systems",
+      "Custom AI Integration",
     ],
   },
   {
-    id: "erp-enterprise",
-    title: "ERP & Enterprise Solutions",
-    shortDesc: "Unified operational backbones integrating all departments.",
+    id: "3d-animation",
+    title: "3D Animations",
+    shortDesc: "Stunning visuals bringing imagination to life.",
     description:
-      "Eliminate fragmented spreadsheets and disparate software. We build unified ERP platforms that sync your supply chain, procurement, inventory, sales leads, and accounting.",
-    iconName: "Database",
-    deliverables: [
-      "End-to-End Enterprise Resource Planning (ERP)",
-      "Supply Chain & Multi-Warehouse Tracking",
-      "Automated Invoicing & Regulatory Compliance",
-      "Role-Based Security & Audit Logs",
-    ],
-  },
-  {
-    id: "digital-growth",
-    title: "Digital Marketing & SEO",
-    shortDesc: "Precision digital channels driving targeted revenue.",
-    description:
-      "A high-performing product deserves an audience. We implement data-driven SEO architectures, performance marketing, and social funnel engineering that convert visitors into lifetime accounts.",
-    iconName: "TrendingUp",
-    deliverables: [
-      "Technical SEO & Content Hierarchy",
-      "High-ROI Google Ads & Meta Funnels",
-      "Conversion Rate Optimization (CRO)",
-      "Growth Analytics & Attribution Modeling",
-    ],
-  },
-  {
-    id: "media-3d",
-    title: "3D Animation & Visual Media",
-    shortDesc: "Cinematic 3D animations and product visualizations.",
-    description:
-      "Bring complex mechanical concepts, software architectures, and brand narratives to life with photorealistic 3D rendering, logo animations, and immersive commercial videos.",
+      "Our 3D animation services bring imagination to life. From conceptualization to execution, we craft stunning visuals that captivate audiences. Our offerings encompass character animation, product visualization, architectural rendering, and beyond.",
     iconName: "Film",
     deliverables: [
-      "Commercial Product 3D Renders",
-      "Dynamic Logo & Motion Identity",
-      "Architectural Walkthroughs & Modeling",
-      "Interactive WebGL Experiences",
+      "Character Animation",
+      "Product Visualization",
+      "Architectural Rendering",
+      "Brand & Logo 3D Visuals",
+    ],
+  },
+  {
+    id: "digital-marketing",
+    title: "Digital Marketing & SEO",
+    shortDesc: "Online promotion, social media marketing, and SEO.",
+    description:
+      "Nowadays digital marketing is one of the popular ways to boost or promote brands & products through the internet and other digital channels. Social media marketing connects people worldwide, while SEO helps you reach your targeted customers.",
+    iconName: "TrendingUp",
+    deliverables: [
+      "Search Engine Optimization (SEO)",
+      "Google Ads Campaign Management",
+      "Social Media Marketing",
+      "Brand Promotion Channels",
     ],
   },
 ];
@@ -321,132 +303,229 @@ export const servicesData: Service[] = [
 export const whyClingData: ValueProp[] = [
   {
     id: "end-to-end",
-    title: "End-to-End Product Lifecycle",
-    subtitle: "Discovery to 24/7 Production SLA",
+    title: "End-to-End IT Solutions",
+    subtitle: "Comprehensive service coverage",
     description:
-      "We don't hand off half-baked designs. We take complete ownership from initial architectural blueprint and UX prototyping to cloud infrastructure, automated QA, and continuous enhancement.",
+      "We provide end-to-end IT solutions covering web development, mobile applications, digital marketing, ERPs, and custom software for all your business needs.",
     iconName: "Layers",
   },
   {
-    id: "business-first",
-    title: "Business-First Engineering",
-    subtitle: "Built for Revenue & Efficiency",
+    id: "ground-up",
+    title: "Ground-Up Development",
+    subtitle: "No pre-designed templates",
     description:
-      "Technology is only as good as the commercial leverage it provides. We build systems that directly compress operational overhead, boost conversion metrics, and unlock new business capabilities.",
+      "We never use pre-designed templates for your website. Every design layout and software module is developed from the ground up to match your exacting standards.",
     iconName: "Target",
   },
   {
-    id: "modern-stack",
-    title: "Modern Technical Rigor",
-    subtitle: "No Technical Debt. No Outdated Stacks.",
+    id: "cutting-edge",
+    title: "Cutting-Edge Technologies",
+    subtitle: "Continuous innovation",
     description:
-      "We write clean, strictly-typed code with modular architecture, strict security boundaries, and automated CI/CD deployment pipelines that scale seamlessly from day one.",
+      "We recognize the significance of staying at the forefront in today's swiftly changing digital environment, allocating resources to embrace emerging technologies.",
     iconName: "ShieldCheck",
   },
   {
     id: "partnership",
-    title: "Long-Term Strategic Partnership",
-    subtitle: "Your High-Velocity Engineering Squad",
+    title: "Long-Term Partnership",
+    subtitle: "A trustworthy ally",
     description:
-      "More than 350+ clients trust Cling as their long-term technical backbone. We evolve your digital platforms alongside your growth trajectory, ensuring you stay ahead of market competitors.",
+      "We take pride in our agility to respond to shifting market trends and evolving customer needs, establishing ourselves as a trustworthy ally for businesses.",
     iconName: "Handshake",
   },
 ];
 
 export const techStackData: TechItem[] = [
-  // Frontend & Mobile
-  { name: "Next.js", category: "Frontend & Mobile", iconName: "Terminal", description: "Server-side rendering, App Router, optimized performance" },
-  { name: "React", category: "Frontend & Mobile", iconName: "Code2", description: "Modular component architecture and reactive state" },
-  { name: "TypeScript", category: "Frontend & Mobile", iconName: "FileCode", description: "Strict static typing and enterprise codebase maintainability" },
-  { name: "Tailwind CSS", category: "Frontend & Mobile", iconName: "Palette", description: "Utility-first design system with pixel-level responsiveness" },
-  { name: "React Native", category: "Frontend & Mobile", iconName: "Smartphone", description: "Cross-platform mobile applications with native runtime" },
-  { name: "Flutter", category: "Frontend & Mobile", iconName: "Layers", description: "Multi-platform high-performance UI engineering" },
-  // Backend & API
-  { name: "Node.js", category: "Backend & API", iconName: "Server", description: "High-concurrency asynchronous runtime for scalable services" },
-  { name: "Python", category: "Backend & API", iconName: "Cpu", description: "Data science, AI/ML pipelines, and microservices" },
-  { name: "FastAPI & Express", category: "Backend & API", iconName: "Zap", description: "High-throughput RESTful endpoints and middleware" },
-  { name: "GraphQL", category: "Backend & API", iconName: "GitMerge", description: "Declarative, precise data querying across platforms" },
-  // Cloud & Infrastructure
-  { name: "Amazon Web Services (AWS)", category: "Cloud & Infrastructure", iconName: "Cloud", description: "S3, EC2, CloudFront, RDS resilient cloud architecture" },
-  { name: "Docker & Containers", category: "Cloud & Infrastructure", iconName: "Box", description: "Reproducible containerization and microservice orchestration" },
-  { name: "PostgreSQL & MongoDB", category: "Cloud & Infrastructure", iconName: "Database", description: "Relational integrity and document-oriented flexibility" },
-  { name: "Redis", category: "Cloud & Infrastructure", iconName: "HardDrive", description: "Ultra-fast in-memory caching and message pub/sub" },
-  // AI & Vision
-  { name: "PyTorch & TensorFlow", category: "AI & Computer Vision", iconName: "Binary", description: "Deep learning models, inference optimization, and training" },
-  { name: "OpenCV", category: "AI & Computer Vision", iconName: "Eye", description: "Real-time computer vision and facial/object detection" },
-  { name: "Natural Language Processing", category: "AI & Computer Vision", iconName: "Sparkles", description: "Intent recognition, text extraction, and conversational AI" },
+  { name: "Next.js & React", category: "Web & Frontend", iconName: "Terminal", description: "Modern reactive web application framework and component architecture" },
+  { name: "TypeScript & JavaScript", category: "Web & Frontend", iconName: "FileCode", description: "Standard modern programming languages for frontend and server logic" },
+  { name: "HTML5 & CSS3", category: "Web & Frontend", iconName: "Code2", description: "Core web standards, responsive styling, and accessible layout structure" },
+  { name: "Tailwind CSS", category: "Web & Frontend", iconName: "Palette", description: "Utility styling for responsive design layouts developed from the ground up" },
+  { name: "Android App Development", category: "Mobile Platforms", iconName: "Smartphone", description: "Custom native and cross-platform mobile application development" },
+  { name: "iOS App Development", category: "Mobile Platforms", iconName: "Smartphone", description: "Custom mobile applications for Apple iOS ecosystem" },
+  { name: "Node.js", category: "Backend & Cloud", iconName: "Server", description: "Scalable server-side JavaScript runtime environment" },
+  { name: "RESTful APIs", category: "Backend & Cloud", iconName: "Zap", description: "API services connecting web portals, mobile apps, and back-office tools" },
+  { name: "Cloud Storage (AWS S3)", category: "Backend & Cloud", iconName: "Cloud", description: "Secure cloud hosting for media, videos, and enterprise assets" },
+  { name: "ERP Application Architecture", category: "Backend & Cloud", iconName: "Database", description: "Integrated back and front office software architectures" },
+  { name: "Natural Language Processing (NLP)", category: "AI & Vision", iconName: "Sparkles", description: "Decoding language patterns for deeper understanding and intelligence" },
+  { name: "Computer Vision & Surveillance", category: "AI & Vision", iconName: "Eye", description: "Video analysis models identifying activities and monitoring security" },
 ];
 
 export const verifiedCountries: Country[] = [
-  { name: "India", code: "IN", region: "Asia Pacific", flagUrl: "https://flagcdn.com/w320/in.png", coords: { x: 70, y: 52 }, highlight: "Headquarters & Engineering Hub" },
-  { name: "United States", code: "US", region: "Americas", flagUrl: "https://flagcdn.com/w320/us.png", coords: { x: 22, y: 38 }, highlight: "Enterprise Software & Cloud Engagements" },
-  { name: "United Kingdom", code: "GB", region: "Europe", flagUrl: "https://flagcdn.com/w320/gb.png", coords: { x: 48, y: 28 }, highlight: "Fintech & Digital Transformation" },
-  { name: "Dubai (UAE)", code: "AE", region: "Middle East & Africa", flagUrl: "https://flagcdn.com/w320/ae.png", coords: { x: 62, y: 46 }, highlight: "Logistics & On-Demand Platforms" },
-  { name: "Saudi Arabia", code: "SA", region: "Middle East & Africa", flagUrl: "https://flagcdn.com/w320/sa.png", coords: { x: 59, y: 48 }, highlight: "Enterprise ERP & Portal Systems" },
-  { name: "Singapore", code: "SG", region: "Asia Pacific", flagUrl: "https://flagcdn.com/w320/sg.png", coords: { x: 77, y: 60 }, highlight: "E-Commerce & High-Frequency Apps" },
-  { name: "Australia", code: "AU", region: "Asia Pacific", flagUrl: "https://flagcdn.com/w320/au.png", coords: { x: 86, y: 76 }, highlight: "Web Portals & Mobile Systems" },
-  { name: "Ireland", code: "IE", region: "Europe", flagUrl: "https://flagcdn.com/w320/ie.png", coords: { x: 46, y: 27 }, highlight: "Healthcare & Therapeutics Tech" },
-  { name: "Spain", code: "ES", region: "Europe", flagUrl: "https://flagcdn.com/w320/es.png", coords: { x: 47, y: 36 }, highlight: "Digital Media & Web Applications" },
-  { name: "South Africa", code: "ZA", region: "Middle East & Africa", flagUrl: "https://flagcdn.com/w320/za.png", coords: { x: 55, y: 78 }, highlight: "Enterprise ERP & Custom Web" },
-  { name: "Oman", code: "OM", region: "Middle East & Africa", flagUrl: "https://flagcdn.com/w320/om.png", coords: { x: 64, y: 49 }, highlight: "Commercial Business Automation" },
-  { name: "Mauritius", code: "MU", region: "Middle East & Africa", flagUrl: "https://flagcdn.com/w320/mu.png", coords: { x: 65, y: 72 }, highlight: "Offshore Advisory & Cloud" },
+  { name: "India", code: "IN", region: "Asia Pacific", flagUrl: "https://flagcdn.com/w320/in.png", coords: { x: 70, y: 52 } },
+  { name: "Saudi Arabia", code: "SA", region: "Middle East & Africa", flagUrl: "https://flagcdn.com/w320/sa.png", coords: { x: 59, y: 48 } },
+  { name: "South Africa", code: "ZA", region: "Middle East & Africa", flagUrl: "https://flagcdn.com/w320/za.png", coords: { x: 55, y: 78 } },
+  { name: "United States", code: "US", region: "Americas", flagUrl: "https://flagcdn.com/w320/us.png", coords: { x: 22, y: 38 } },
+  { name: "Oman", code: "OM", region: "Middle East & Africa", flagUrl: "https://flagcdn.com/w320/om.png", coords: { x: 64, y: 49 } },
+  { name: "Dubai (UAE)", code: "AE", region: "Middle East & Africa", flagUrl: "https://flagcdn.com/w320/ae.png", coords: { x: 62, y: 46 } },
+  { name: "Singapore", code: "SG", region: "Asia Pacific", flagUrl: "https://flagcdn.com/w320/sg.png", coords: { x: 77, y: 60 } },
+  { name: "Ireland", code: "IE", region: "Europe", flagUrl: "https://flagcdn.com/w320/ie.png", coords: { x: 46, y: 27 } },
+  { name: "Mauritius", code: "MU", region: "Middle East & Africa", flagUrl: "https://flagcdn.com/w320/mu.png", coords: { x: 65, y: 72 } },
+  { name: "Australia", code: "AU", region: "Asia Pacific", flagUrl: "https://flagcdn.com/w320/au.png", coords: { x: 86, y: 76 } },
+  { name: "United Kingdom", code: "GB", region: "Europe", flagUrl: "https://flagcdn.com/w320/gb.png", coords: { x: 48, y: 28 } },
+  { name: "Spain", code: "ES", region: "Europe", flagUrl: "https://flagcdn.com/w320/es.png", coords: { x: 47, y: 36 } },
 ];
 
 export const verifiedClients: Client[] = [
-  { name: "Verified Property Intelligence", category: "PropTech & Analytics", logoText: "VPI", website: "https://mittal-web.vercel.app/" },
-  { name: "MAT Commercial Vehicles", category: "Automotive & Engineering", logoText: "MAT Commercial" },
-  { name: "Omsons India Handicraft", category: "Manufacturing & Export", logoText: "Omsons India", website: "https://omsons.co.in/" },
-  { name: "Delhi Public International School", category: "Education Ecosystem", logoText: "DPIS", website: "https://www.dpissociety.com/" },
-  { name: "Indian Racing Festival", category: "Sports & Entertainment", logoText: "Indian Racing Fest", website: "https://rpplind.com/indian-racing-festival/" },
-  { name: "ePayLater", category: "Fintech & Payments", logoText: "ePayLater" },
-  { name: "Ambit Finvest", category: "Financial Services", logoText: "Ambit Finvest" },
-  { name: "Speech Ally", category: "Healthcare Diagnostics", logoText: "Speech Ally" },
-  { name: "Piaah", category: "Lifestyle & Retail", logoText: "Piaah.com" },
-  { name: "SSCL ERP", category: "Industrial Enterprise", logoText: "SSCL ERP" },
-  { name: "SRS Manpower ERP", category: "Workforce Management", logoText: "SRS Manpower" },
-  { name: "Seymour Management", category: "Corporate Consulting", logoText: "Seymour" },
-  { name: "Apptrove", category: "Mobile Technology", logoText: "Apptrove" },
-  { name: "Kalco Systems", category: "Infrastructure & Glass", logoText: "Kalco" },
-  { name: "Cutec Delivery", category: "Logistics Automation", logoText: "Cutec" },
-  { name: "Bhojras", category: "Retail & F&B", logoText: "Bhojras" },
-  { name: "Yogyata", category: "Skill Development", logoText: "Yogyata" },
+  {
+    name: "Verified Property Intelligence",
+    imageURL: "https://cling-portfolio-video.s3.ap-south-1.amazonaws.com/logos/1780307320868-Screenshot_2026-06-01_at_3.18.00_PM.png",
+    websiteLink: "https://mittal-web.vercel.app/",
+  },
+  {
+    name: "Omsons India Handicraft",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/1761644572462-logo.png",
+    websiteLink: "https://omsons.co.in/",
+  },
+  {
+    name: "Seymour Management",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/1761644602861-logo.png",
+  },
+  {
+    name: "Kirana Quick Technologies",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/1761307901537-logo.png",
+    websiteLink: "https://www.orlonow.in/",
+  },
+  {
+    name: "Solidarity Advisors",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/1761307659597-logo.png",
+    websiteLink: "https://www.solidarity.in/",
+  },
+  {
+    name: "CP67",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/1761307195398-logo.png",
+    websiteLink: "https://cp67.in/",
+  },
+  {
+    name: "Capital Curve",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/1761307073516-logo.png",
+    websiteLink: "https://www.capitalcurv.com/",
+  },
+  {
+    name: "FDX Group",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/1761306951257-logo.jpeg",
+    websiteLink: "https://www.fdxnetwork.com/",
+  },
+  {
+    name: "Kalco",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/1761306794323-logo.png",
+    websiteLink: "http://kalcoindia.com/",
+  },
+  {
+    name: "Bhojras",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/bhojras-1760612419392.png",
+  },
+  {
+    name: "Wings Rehabilitation Center",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/wings-rehabilitation-1760612418801.png",
+    websiteLink: "https://wingsrehabilitationcenter.com",
+  },
+  {
+    name: "NK Architects",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/nk-architects-1760612417999.jpeg",
+    websiteLink: "https://nkarchitects.co.in",
+  },
+  {
+    name: "Vestiary",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/vestiary-1760612417637.jpeg",
+    websiteLink: "https://vestiary.in",
+  },
+  {
+    name: "Skuad",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/skuad-1760612417294.jpeg",
+    websiteLink: "https://www.skuad.io",
+  },
+  {
+    name: "Piaah",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/piaah-1760612416885.jpeg",
+    websiteLink: "https://piaah.com",
+  },
+  {
+    name: "Forescribe",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/forescribe-1760612416165.jpeg",
+    websiteLink: "https://www.forescribe.ai",
+  },
+  {
+    name: "Apptrove",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/apptrove-1760612415831.jpeg",
+    websiteLink: "https://apptrove.com",
+  },
+  {
+    name: "BeatRoute",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/beatroute-1760612415117.png",
+    websiteLink: "https://beatroute.io/",
+  },
+  {
+    name: "Phonologix Therapy",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/phonologix-therapy-1760612414290.png",
+    websiteLink: "https://phonologixtherapy.com/",
+  },
+  {
+    name: "Kite Digiceutix",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/kite-digiceutix-1760612413861.png",
+    websiteLink: "https://kitedigiceutix.com/",
+  },
+  {
+    name: "E-Pay Later",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/epay-later-1760612413032.png",
+    websiteLink: "https://www.epaylater.in",
+  },
+  {
+    name: "Matrix Solutions",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/matrix-solutions-1760612411095.jpeg",
+  },
+  {
+    name: "Parashar",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/parashar-1760612410064.png",
+    websiteLink: "https://www.prcpl.com/",
+  },
+  {
+    name: "Papertio",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/papertio-1760612409208.png",
+  },
+  {
+    name: "MatchMe Global",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/matchme-1760612408758.jpeg",
+    websiteLink: "https://www.matchmeglobal.com",
+  },
+  {
+    name: "Mint HR",
+    imageURL: "https://cling-project.s3.ap-south-1.amazonaws.com/logos/minthr-1760612408304.png",
+  },
 ];
+
+export const storyText = {
+  overview:
+    "We are a company with multifarious IT services like ERPS, Websites, App Development, Support, Innovations, Projects, Ideas. Innovations At Its best, is what we believe in. We understand not only customers well, but also the industry at large. We majorly focus to enhance skills and growth of individual. Our diverse team of professionals shares a passion for online education. We provide consistent and captivating learning experience across desktops, tablets and smartphone.",
+  vision:
+    "At Cling, our goal is to deliver premier web design, development, and marketing solutions to our clients, fostering their profitable online growth while expanding our roster of satisfied clients. We are dedicated to enhancing various facets of our business, such as the quality of our work, customer service excellence, technology integration, dynamic innovation, and steadfast commitment, among other key aspects.",
+  mission:
+    "We recognize the significance of staying at the forefront in today's swiftly changing digital environment. That's why we consistently allocate resources to enhance our personnel, refine our processes, and embrace cutting-edge technologies. Our commitment is to deliver top-notch services to our clients. We take pride in our agility to respond to shifting market trends and evolving customer needs, establishing ourselves as a trustworthy ally for businesses aiming to outpace the competition.",
+};
 
 export const storyMilestones: TimelineMilestone[] = [
   {
     year: "2019",
-    title: "Foundational Inception",
+    title: "Foundational Growth & Learning",
     description:
-      "A year of foundational growth and dedicated learning. Cling was established with a focused core engineering ethos: delivering bespoke, zero-template technology solutions for ambitious founders.",
-    metrics: "Inception & Core Stack",
+      "A year of foundational growth and learning, we focused on building a strong foundation and establishing our identity.",
   },
   {
     year: "2020",
-    title: "Diversification & Service Expansion",
+    title: "Solidifying Our Presence",
     description:
-      "Solidifying our market presence during a critical digital inflection year. We broadened our engineering capabilities across enterprise ERPs, cloud platforms, and mobile apps, holding steadfast to exceptional quality.",
-    metrics: "Expanded to 50+ Deployments",
+      "Solidifying our presence, we diversified our services and remained committed to quality and customer satisfaction.",
   },
   {
     year: "2021",
-    title: "National Recognition & Stack Innovation",
+    title: "Momentum & Recognition",
     description:
-      "Gained significant industry momentum and peer recognition. Welcomed larger mid-market enterprises into our clientele while embracing modern reactive frameworks and microservices.",
-    metrics: "Crossed 150+ Clients",
+      "We gained momentum and recognition, expanding our client base and embracing new technologies and methodologies.",
   },
   {
     year: "2022",
-    title: "Matured Enterprise Delivery",
+    title: "Matured Organization",
     description:
-      "A landmark milestone year. Cling evolved into a mature, multi-office engineering organization taking on complex, mission-critical systems and multi-tenant architectures.",
-    metrics: "250+ Successful Projects",
-  },
-  {
-    year: "Today",
-    title: "Global Reach & AI Intelligence",
-    description:
-      "Expanding our footprint across 12 countries with 350+ happy clients and 32M+ lines of code. Delivering cutting-edge Computer Vision, high-throughput web portals, and scalable cloud solutions.",
-    metrics: "350+ Clients • 12 Countries",
+      "A milestone year, we grew into a matured organization, taking on ambitious projects and delivering greater value.",
   },
 ];
 
@@ -454,21 +533,18 @@ export const leadershipData: Leader[] = [
   {
     name: "Ramesh Singh",
     role: "Co-founder & Director",
-    bio: "Pioneering Cling's technological roadmap and long-term strategic direction. Oversees architectural standards, enterprise partnerships, and operational governance across our engineering divisions.",
     image: "/images/ramesh-singh.png",
     linkedin: "https://www.linkedin.com/company/cling-multi-solutions-pvt-ltd/",
   },
   {
     name: "Ashi Gupta",
     role: "Managing Director",
-    bio: "Spearheading company growth, client engagement frameworks, and strategic operations. Ensures every client partnership receives executive-level accountability and flawless delivery precision.",
     image: "/images/ashi-gupta.png",
     linkedin: "https://www.linkedin.com/company/cling-multi-solutions-pvt-ltd/",
   },
   {
     name: "Akshay Gupta",
     role: "CEO",
-    bio: "Driving Cling's product vision, engineering excellence, and international business expansion. Focused on cultivating world-class development talent and scaling high-impact digital ventures.",
     image: "/images/akshay-gupta.jpg",
     linkedin: "https://www.linkedin.com/company/cling-multi-solutions-pvt-ltd/",
   },
@@ -477,33 +553,28 @@ export const leadershipData: Leader[] = [
 export const testimonialsData: Testimonial[] = [
   {
     id: 1,
+    name: "Praveen Shetty",
+    quote:
+      "Working with Cling Info Tech was a game-changer for our business. Their expertise and dedication helped us achieve remarkable results. I highly recommend them to anyone looking for top-notch service",
+    image: "/images/logo.png",
+  },
+  {
+    id: 2,
     name: "Swatee Agrawal",
     role: "Founder",
     company: "Piaah.com",
     quote:
-      "Cling Info Tech's professionalism and efficiency surpassed our expectations, understanding our needs exceptionally well. Rarely do we find such a reliable partner in today's market. Their dedication sets them apart.",
+      "Cling Info Tech' professionalism and efficiency surpassed our expectations, understanding our needs exceptionally well. Rarely do we find such a reliable partner in today's market. Their dedication sets them apart.",
     image: "/images/swatee.jpeg",
-    rating: 5,
   },
   {
-    id: 2,
+    id: 3,
     name: "Elizabeth Jean Thomas",
     role: "Founder",
     company: "Speech Ally",
     quote:
       "Choosing Cling Info Tech was one of the best decisions we made. Their team's creativity and strategic approach transformed our vision into reality. I'm grateful for their outstanding support and guidance throughout the process.",
     image: "/images/elizabeth.jpeg",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Aurko Bhattacharya",
-    role: "Co-founder",
-    company: "ePayLater",
-    quote:
-      "Working with Cling Info Tech was an absolute pleasure throughout. In today's fiercely competitive market, finding a partner who truly understands your technical scale and needs is invaluable, and Cling excels exceptionally in this regard.",
-    image: "/images/aurko.jpeg",
-    rating: 5,
   },
   {
     id: 4,
@@ -511,9 +582,8 @@ export const testimonialsData: Testimonial[] = [
     role: "Director",
     company: "Vibgyorweb",
     quote:
-      "Cling Info Tech exceeded all our expectations with their technical rigor and delivery speed. Their understanding of our requirements was exceptional, and they consistently went above and beyond to deliver outstanding results.",
+      "Cling Info Tech exceeded all our expectations with their professionalism and efficiency. Their understanding of our requirements was exceptional, and they consistently went above and beyond to deliver outstanding results.",
     image: "/images/ashish.jpg",
-    rating: 5,
   },
   {
     id: 5,
@@ -521,28 +591,47 @@ export const testimonialsData: Testimonial[] = [
     role: "Director",
     company: "Litmus Ink",
     quote:
-      "Finding a digital engineering team that blends deep design sensitivity with robust back-end capabilities is rare. Cling's team communicated clearly and delivered ahead of our schedule.",
+      "Working with Cling Info Tech was an absolute pleasure throughout. In today's fiercely competitive market, finding a partner who truly understands your needs is invaluable, and Cling Info Tech excels exceptionally in this regard.",
     image: "/images/shams.png",
-    rating: 5,
   },
   {
     id: 6,
+    name: "Arif",
+    quote:
+      "Working with Cling Info Tech was a game-changer for our business. Their expertise and dedication helped us achieve remarkable results. I highly recommend them to anyone looking for top-notch service",
+    image: "/images/logo.png",
+  },
+  {
+    id: 7,
+    name: "Aurko Bhattacharya",
+    role: "Co-founder",
+    company: "ePayLater",
+    quote:
+      "Working with Cling Info Tech was an absolute pleasure throughout. In today's fiercely competitive market, finding a partner who truly understands your needs is invaluable, and Cling Info Tech excels exceptionally in this regard.",
+    image: "/images/aurko.jpeg",
+  },
+  {
+    id: 8,
+    name: "Ankit Solanki",
+    quote:
+      "Choosing Cling Info Tech was one of the best decisions we made. Their team's creativity and strategic approach transformed our vision into reality. I'm grateful for their outstanding support and guidance throughout the process.",
+    image: "/images/logo.png",
+  },
+  {
+    id: 9,
     name: "Gourav Singh",
     role: "CFO",
     company: "Webisdom",
     quote:
-      "The engineering depth and commercial understanding that Cling brought to our project saved us months of iteration. They act like true co-founders rather than an outsourced agency.",
+      "Working with Cling Info Tech was an absolute pleasure throughout. In today's fiercely competitive market, finding a partner who truly understands your needs is invaluable, and Cling Info Tech excels exceptionally in this regard.",
     image: "/images/gourav.jpeg",
-    rating: 5,
   },
   {
-    id: 7,
-    name: "Praveen Shetty",
-    role: "Managing Director",
+    id: 10,
+    name: "Shubhanshu Srivastava",
     quote:
-      "Working with Cling Info Tech was a game-changer for our business. Their expertise and dedication helped us achieve remarkable results. I highly recommend them to anyone looking for top-notch service.",
+      "Cling Info Tech' professionalism and efficiency surpassed our expectations, understanding our needs exceptionally well. Rarely do we find such a reliable partner in today's market. Their dedication sets them apart.",
     image: "/images/logo.png",
-    rating: 5,
   },
 ];
 
@@ -557,22 +646,16 @@ export const companyContact = {
   },
   offices: [
     {
-      city: "Noida (Head Office)",
+      city: "Head Office Noida",
       address: "130, 131, 132, 2nd Floor, Wave Galleria, Wave City, NH-24, Noida, Uttar Pradesh - 201015",
-      state: "Uttar Pradesh",
-      type: "Global Headquarters",
     },
     {
-      city: "Pune Office",
-      address: "2nd Floor, Raj Square, Pashan - Sus Rd, near Abhinav Kala College, opp. Reliance Fresh, Sutarwadi, Pashan, Pune - 411021",
-      state: "Maharashtra",
-      type: "Western Regional Office",
+      city: "Pune Office Address",
+      address: "2nd Floor, Raj Sqaure, Pashan - Sus Rd, near Abhinav kala college, opposite Reliance Fresh, Sutarwadi, Pashan, Pune, Maharashtra - 411021",
     },
     {
-      city: "Moradabad Office",
+      city: "Moradabad Office Address",
       address: "2/652, Avas Vikas, Buddhi Vihar, Moradabad, UP - 244001",
-      state: "Uttar Pradesh",
-      type: "Development Center",
     },
   ],
 };
