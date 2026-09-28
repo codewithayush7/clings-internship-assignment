@@ -5,6 +5,16 @@ import Link from "next/link";
 import { ArrowRight, Code2, Cpu, Database, Layers, Activity } from "lucide-react";
 
 export default function Hero() {
+
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const el = document.getElementById("contact");
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", "#contact");
+    }
+  };
+
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-grid-pattern">
       {/* Ambient background glows */}
@@ -42,6 +52,7 @@ export default function Hero() {
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
               <Link
                 href="#contact"
+                onClick={handleScrollToContact}
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl text-base font-semibold text-white bg-gradient-to-r from-[#EF1B23] to-[#C6151C] hover:from-[#FF2A33] hover:to-[#EF1B23] shadow-lg shadow-red-950/50 hover:shadow-red-900/70 hover:-translate-y-0.5 transition-all group focus:outline-none focus:ring-2 focus:ring-[#EF1B23] focus:ring-offset-2 focus:ring-offset-[#0A0A0B]"
               >
                 <span>Start a Project</span>

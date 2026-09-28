@@ -19,7 +19,7 @@ export interface Project {
   tagline: string;
   description: string;
   tags: string[];
-  image: string;
+  image?: string | null;
   fallbackGradient: string;
 }
 
@@ -153,7 +153,7 @@ export const projectsData: Project[] = [
     description:
       "Task management platform featured in Cling's custom web application portfolio.",
     tags: ["Web Application", "Task Management"],
-    image: "/images/thumb-ai.png",
+    image: "/images/project-taskflow.png",
     fallbackGradient: "from-neutral-900 via-neutral-950 to-red-950/40",
   },
   {
@@ -164,7 +164,7 @@ export const projectsData: Project[] = [
     description:
       "On-demand home services platform serving Wave City and surrounding areas.",
     tags: ["On-Demand Services", "Mobile Application"],
-    image: "/images/thumb-3d.png",
+    image: "/images/project-rusho.png",
     fallbackGradient: "from-neutral-900 via-neutral-950 to-neutral-900",
   },
   {
@@ -186,7 +186,7 @@ export const projectsData: Project[] = [
     description:
       "Custom ERP software developed for Omsons India.",
     tags: ["ERP", "Custom Software"],
-    image: "/images/thumb-3d.png",
+    image: "/images/project-omson.png",
     fallbackGradient: "from-neutral-900 via-neutral-950 to-neutral-900",
   },
   {
@@ -197,7 +197,7 @@ export const projectsData: Project[] = [
     description:
       "Speech-focused mobile and web application featured in Cling's portfolio.",
     tags: ["Mobile App", "Web Portal"],
-    image: "/images/elizabeth.jpeg",
+    image: "/images/project-speechally.png",
     fallbackGradient: "from-neutral-900 via-neutral-950 to-red-950/30",
   },
   {
@@ -208,7 +208,7 @@ export const projectsData: Project[] = [
     description:
       "Custom web application featured in Cling's portfolio.",
     tags: ["Custom Web Application"],
-    image: "/images/aurko.jpeg",
+    image: "/images/project-matrix.png",
     fallbackGradient: "from-neutral-900 via-neutral-950 to-indigo-950/30",
   },
 ];

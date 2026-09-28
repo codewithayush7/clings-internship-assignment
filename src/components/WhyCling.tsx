@@ -13,11 +13,11 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function WhyCling() {
   return (
-    <section id="why-cling" className="relative py-24 sm:py-32 bg-[#0A0A0B] border-t border-white/10">
+    <section id="why-cling" className="relative py-24 sm:py-32 bg-[#0A0A0B] border-t border-white/10 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Narrative Headline */}
-          <div className="lg:col-span-5 sticky top-28">
+          {/* Left Column: Narrative Headline (sticky only on desktop) */}
+          <div className="lg:col-span-5 static lg:sticky lg:top-28">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#EF1B23] uppercase tracking-wider mb-4">
               <span>Why Cling</span>
             </div>

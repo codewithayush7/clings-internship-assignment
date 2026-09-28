@@ -24,8 +24,17 @@ export default function SelectedWork() {
     return p.category === activeFilter;
   });
 
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const el = document.getElementById("contact");
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", "#contact");
+    }
+  };
+
   return (
-    <section id="work" className="relative py-24 sm:py-32 bg-[#0A0A0B]">
+    <section id="work" className="relative py-24 sm:py-32 bg-[#0A0A0B] scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
@@ -63,7 +72,7 @@ export default function SelectedWork() {
 
         {/* Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {filteredProjects.map((project: Project, index: number) => (
+          {filteredProjects.map((project: Project) => (
             <article
               key={project.id}
               className="group relative rounded-2xl bg-[#151518] border border-white/10 hover:border-[#EF1B23]/40 transition-all duration-300 overflow-hidden flex flex-col hover:-translate-y-1.5 shadow-2xl"
@@ -80,17 +89,42 @@ export default function SelectedWork() {
                   </span>
                 </div>
 
-                {/* Preview Thumbnail */}
+                {/* Preview Thumbnail / Clean Project Fallback */}
                 <div className="absolute inset-0 flex items-center justify-center p-6 group-hover:scale-105 transition-transform duration-500">
-                  <div className="relative w-full h-full rounded-xl overflow-hidden shadow-xl border border-white/10 bg-[#0A0A0B]/80 flex items-center justify-center">
-                    <Image
-                      src={project.image}
-                      alt={project.name}
-                      fill
-                      className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-transparent to-transparent opacity-60" />
+                  <div className="relative w-full h-full rounded-xl overflow-hidden shadow-xl border border-white/10 bg-[#0E0E12] flex items-center justify-center">
+                    {project.image ? (
+                      <>
+                        <Image
+                          src={project.image}
+                          alt={project.name}
+                          fill
+                          className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-transparent to-transparent opacity-60" />
+                      </>
+                    ) : (
+                      <div className="relative w-full h-full flex flex-col items-center justify-center p-4 text-center">
+                        {/* Subtle abstract UI grid treatment */}
+                        <div
+                          className="absolute inset-0 opacity-15 pointer-events-none"
+                          style={{
+                            backgroundImage:
+                              "radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.25) 1px, transparent 0)",
+                            backgroundSize: "16px 16px",
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B]/90 via-transparent to-transparent pointer-events-none" />
+                        <div className="relative z-10 flex flex-col items-center">
+                          <span className="text-[10px] font-mono tracking-widest text-[#EF1B23] uppercase mb-1">
+                            {project.tagline}
+                          </span>
+                          <h4 className="text-base sm:text-lg font-bold text-white tracking-wide">
+                            {project.name}
+                          </h4>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -104,6 +138,7 @@ export default function SelectedWork() {
                     </h3>
                     <Link
                       href="#contact"
+                      onClick={handleScrollToContact}
                       className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-[#EF1B23] flex items-center justify-center text-neutral-300 group-hover:text-white transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-[#EF1B23]"
                       aria-label={`Inquire about ${project.name}`}
                     >
@@ -135,14 +170,12 @@ export default function SelectedWork() {
                   <div className="mt-4 flex items-center justify-between">
                     <Link
                       href="#contact"
+                      onClick={handleScrollToContact}
                       className="text-xs font-semibold text-neutral-300 hover:text-white flex items-center gap-1 group/btn"
                     >
                       <span>Inquire About This Solution</span>
                       <ArrowUpRight className="w-3.5 h-3.5 text-[#EF1B23] transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                     </Link>
-                    <span className="text-[11px] font-mono text-neutral-500">
-                      Project 0{index + 1}
-                    </span>
                   </div>
                 </div>
               </div>
@@ -160,7 +193,8 @@ export default function SelectedWork() {
           </div>
           <Link
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#EF1B23] hover:bg-[#D4141C] text-sm font-semibold text-white shadow-lg shadow-red-950/40 transition-colors shrink-0"
+            onClick={handleScrollToContact}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#EF1B23] hover:bg-[#D4141C] text-sm font-semibold text-white shadow-lg shadow-red-950/40 transition-colors shrink-0 cursor-pointer"
           >
             <span>Start a Project</span>
             <ArrowUpRight className="w-4 h-4" />

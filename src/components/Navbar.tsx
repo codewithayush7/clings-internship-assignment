@@ -30,13 +30,22 @@ export default function Navbar() {
     };
   }, [mobileMenuOpen]);
 
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const el = document.getElementById("contact");
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", "#contact");
+    }
+  };
+
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0A0A0B]/90 backdrop-blur-md border-b border-white/10 py-3 shadow-lg shadow-black/40"
-          : "bg-transparent py-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? "bg-[#0A0A0B]/90 backdrop-blur-md border-b border-white/10 py-3 shadow-lg shadow-black/40"
+        : "bg-transparent py-5"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -71,18 +80,16 @@ export default function Navbar() {
                   <div>
                     <button
                       type="button"
-                      className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium rounded-lg transition-colors ${
-                        activeDropdown === item.name
-                          ? "text-white bg-white/5"
-                          : "text-neutral-300 hover:text-white hover:bg-white/5"
-                      }`}
+                      className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium rounded-lg transition-colors ${activeDropdown === item.name
+                        ? "text-white bg-white/5"
+                        : "text-neutral-300 hover:text-white hover:bg-white/5"
+                        }`}
                       aria-expanded={activeDropdown === item.name}
                     >
                       {item.name}
                       <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          activeDropdown === item.name ? "rotate-180 text-[#EF1B23]" : "text-neutral-400"
-                        }`}
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === item.name ? "rotate-180 text-[#EF1B23]" : "text-neutral-400"
+                          }`}
                       />
                     </button>
 
@@ -127,6 +134,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="#contact"
+              onClick={handleScrollToContact}
               className="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-[#EF1B23] to-[#C6151C] hover:from-[#FF2A33] hover:to-[#EF1B23] transition-all shadow-md shadow-red-950/40 hover:shadow-red-900/60 hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0A0A0B] focus:ring-[#EF1B23]"
             >
               <span>Let&apos;s Talk</span>
