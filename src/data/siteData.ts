@@ -42,7 +42,7 @@ export interface ValueProp {
 
 export interface TechItem {
   name: string;
-  category: "Web & Frontend" | "Mobile Platforms" | "Backend & Cloud" | "AI & Vision";
+  category: "Web & Frontend" | "Mobile Platforms" | "Backend & Data" | "AI & Solutions";
   iconName: string;
   description: string;
 }
@@ -336,18 +336,91 @@ export const whyClingData: ValueProp[] = [
 ];
 
 export const techStackData: TechItem[] = [
-  { name: "Next.js & React", category: "Web & Frontend", iconName: "Terminal", description: "Modern reactive web application framework and component architecture" },
-  { name: "TypeScript & JavaScript", category: "Web & Frontend", iconName: "FileCode", description: "Standard modern programming languages for frontend and server logic" },
-  { name: "HTML5 & CSS3", category: "Web & Frontend", iconName: "Code2", description: "Core web standards, responsive styling, and accessible layout structure" },
-  { name: "Tailwind CSS", category: "Web & Frontend", iconName: "Palette", description: "Utility styling for responsive design layouts developed from the ground up" },
-  { name: "Android App Development", category: "Mobile Platforms", iconName: "Smartphone", description: "Custom native and cross-platform mobile application development" },
-  { name: "iOS App Development", category: "Mobile Platforms", iconName: "Smartphone", description: "Custom mobile applications for Apple iOS ecosystem" },
-  { name: "Node.js", category: "Backend & Cloud", iconName: "Server", description: "Scalable server-side JavaScript runtime environment" },
-  { name: "RESTful APIs", category: "Backend & Cloud", iconName: "Zap", description: "API services connecting web portals, mobile apps, and back-office tools" },
-  { name: "Cloud Storage (AWS S3)", category: "Backend & Cloud", iconName: "Cloud", description: "Secure cloud hosting for media, videos, and enterprise assets" },
-  { name: "ERP Application Architecture", category: "Backend & Cloud", iconName: "Database", description: "Integrated back and front office software architectures" },
-  { name: "Natural Language Processing (NLP)", category: "AI & Vision", iconName: "Sparkles", description: "Decoding language patterns for deeper understanding and intelligence" },
-  { name: "Computer Vision & Surveillance", category: "AI & Vision", iconName: "Eye", description: "Video analysis models identifying activities and monitoring security" },
+  // Web & Frontend
+  {
+    name: "React",
+    category: "Web & Frontend",
+    iconName: "Code2",
+    description: "JavaScript library for building component-based user interfaces.",
+  },
+  {
+    name: "JavaScript",
+    category: "Web & Frontend",
+    iconName: "FileCode",
+    description: "Core programming language used across Cling's web development training and solutions.",
+  },
+  {
+    name: "HTML5 & CSS3",
+    category: "Web & Frontend",
+    iconName: "Terminal",
+    description: "Core web standards for structure, styling, and responsive layouts.",
+  },
+  {
+    name: "Bootstrap",
+    category: "Web & Frontend",
+    iconName: "Palette",
+    description: "Frontend framework referenced in Cling's web development curriculum.",
+  },
+
+  // Mobile Platforms
+  {
+    name: "Mobile App Development",
+    category: "Mobile Platforms",
+    iconName: "Smartphone",
+    description: "Custom mobile application development services.",
+  },
+
+  // Backend & Data
+  {
+    name: "Node.js",
+    category: "Backend & Data",
+    iconName: "Server",
+    description: "Server-side JavaScript runtime used in Cling's backend development curriculum.",
+  },
+  {
+    name: "MongoDB",
+    category: "Backend & Data",
+    iconName: "Database",
+    description: "NoSQL database technology referenced in Cling's web development curriculum.",
+  },
+  {
+    name: "APIs & Backend Development",
+    category: "Backend & Data",
+    iconName: "Zap",
+    description: "Backend servers and API development using Node.js.",
+  },
+
+  // AI & Solutions
+  {
+    name: "AI / ML",
+    category: "AI & Solutions",
+    iconName: "Sparkles",
+    description: "Artificial intelligence and machine learning solutions.",
+  },
+  {
+    name: "Natural Language Processing (NLP)",
+    category: "AI & Solutions",
+    iconName: "FileCode",
+    description: "AI capability used to decode language patterns for deeper understanding.",
+  },
+  {
+    name: "AI Surveillance",
+    category: "AI & Solutions",
+    iconName: "Eye",
+    description: "AI model demonstrating detection of suspicious activity in video.",
+  },
+  {
+    name: "ERP Solutions",
+    category: "AI & Solutions",
+    iconName: "Layers3",
+    description: "Enterprise resource planning solutions integrating business operations.",
+  },
+  {
+    name: "3D Animation",
+    category: "AI & Solutions",
+    iconName: "Box",
+    description: "3D animation services including product visualization and architectural rendering.",
+  },
 ];
 
 export const verifiedCountries: Country[] = [

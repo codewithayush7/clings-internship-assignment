@@ -9,11 +9,11 @@ import {
   Smartphone,
   Server,
   Zap,
-  Cloud,
   Database,
   Eye,
   Sparkles,
   Layers3,
+  Box,
 } from "lucide-react";
 import { techStackData, TechItem } from "@/data/siteData";
 
@@ -25,10 +25,11 @@ const iconMap: Record<string, React.ElementType> = {
   Smartphone,
   Server,
   Zap,
-  Cloud,
   Database,
   Eye,
   Sparkles,
+  Layers3,
+  Box,
 };
 
 export default function Technology() {
@@ -38,8 +39,8 @@ export default function Technology() {
     "All",
     "Web & Frontend",
     "Mobile Platforms",
-    "Backend & Cloud",
-    "AI & Vision",
+    "Backend & Data",
+    "AI & Solutions",
   ];
 
   const filtered = techStackData.filter((item) => {
@@ -60,7 +61,7 @@ export default function Technology() {
             Our Technology Focus
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-300 font-normal">
-            Technologies and frameworks utilized across Cling&apos;s web platforms, mobile applications, enterprise ERPs, and artificial intelligence solutions.
+            Technologies and capabilities reflected across Cling&apos;s web, mobile, AI, and enterprise solutions.
           </p>
         </div>
 
