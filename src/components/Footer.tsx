@@ -17,24 +17,28 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Branding Bar */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-12 border-b border-white/10">
-          <div className="flex items-center gap-3">
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#EF1B23] to-[#8A0005] p-[1px] shadow-md shadow-red-950/40">
-              <div className="w-full h-full bg-[#0A0A0B] rounded-[11px] flex items-center justify-center overflow-hidden">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <Link
+              href="/"
+              className="inline-flex items-center rounded-lg focus:outline-none focus-visible:ring-1 focus-visible:ring-white/30"
+              aria-label="Cling InfoTech Homepage"
+            >
+              <div className="h-10 sm:h-11 px-3.5 sm:px-4 py-1.5 rounded-lg bg-white flex items-center justify-center transition-opacity hover:opacity-95">
                 <Image
                   src="/images/logo.png"
-                  alt="Cling Logo"
-                  width={34}
+                  alt="Cling InfoTech"
+                  width={130}
                   height={34}
-                  className="object-contain p-1"
+                  className="h-7 sm:h-8 w-auto object-contain"
                 />
               </div>
-            </div>
-            <div>
-              <span className="text-xl font-bold tracking-tight text-white block">
-                CLING<span className="text-[#EF1B23]">.</span>
+            </Link>
+            <div className="border-l-0 sm:border-l border-white/10 sm:pl-4">
+              <span className="text-sm font-semibold tracking-tight text-white block">
+                Cling Info Tech Works Private Limited
               </span>
               <span className="text-xs text-neutral-400">
-                Cling Info Tech Works Private Limited
+                Making Your Ideas Happen!
               </span>
             </div>
           </div>
@@ -110,7 +114,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="#services" className="hover:text-white transition-colors">
-                  AI, Machine Learning &amp; Vision
+                  AI &amp; Machine Learning
                 </Link>
               </li>
               <li>
