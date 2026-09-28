@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Code2, Cpu, Database, Layers, Sparkles, Activity } from "lucide-react";
+import { ArrowRight, Code2, Cpu, Database, Layers, Activity } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -129,10 +129,10 @@ export default function Hero() {
                         </div>
                         <div>
                           <div className="text-xs font-semibold text-white group-hover:text-indigo-400 transition-colors">
-                            AI / ML &amp; Computer Vision
+                            AI / ML
                           </div>
                           <div className="text-[11px] text-neutral-400 font-mono">
-                            Surveillance models &amp; NLP language patterns
+                            Surveillance &amp; intelligent automation
                           </div>
                         </div>
                       </div>
@@ -154,7 +154,7 @@ export default function Hero() {
                             Web &amp; Mobile Development
                           </div>
                           <div className="text-[11px] text-neutral-400 font-mono">
-                            Ground-up layouts, never pre-designed templates
+                            Ground-up development, never pre-designed templates
                           </div>
                         </div>
                       </div>
@@ -168,8 +168,8 @@ export default function Hero() {
                 {/* Console Log Summary */}
                 <div className="mt-4 p-3 rounded-xl bg-black/60 border border-white/5 font-mono text-[11px] text-neutral-400 space-y-1">
                   <div className="flex items-center justify-between text-neutral-500">
-                    <span>cling-system.status</span>
-                    <span className="text-neutral-500">Production Ready</span>
+                    <span>cling-services // status</span>
+                    <span className="text-neutral-500">Established 2019</span>
                   </div>
                   <div className="text-neutral-300">
                     <span className="text-[#EF1B23]">✓</span> Web, Mobile, AI/ML, and ERP solutions
@@ -180,17 +180,6 @@ export default function Hero() {
                   <div className="text-neutral-400">
                     <span className="text-indigo-400">→</span> Making Your Ideas Happen!
                   </div>
-                </div>
-              </div>
-
-              {/* Floating Highlight Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-[#0A0A0B]/95 border border-[#EF1B23]/40 rounded-xl p-3 shadow-xl backdrop-blur-md hidden sm:flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#EF1B23] to-[#8A0005] flex items-center justify-center text-white shadow-md">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">Making Your Ideas Happen!</div>
-                  <div className="text-[10px] text-neutral-400">End-to-End IT Solutions</div>
                 </div>
               </div>
             </div>
